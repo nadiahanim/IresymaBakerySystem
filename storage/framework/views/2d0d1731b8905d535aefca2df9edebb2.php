@@ -1,21 +1,19 @@
-@extends('layouts.master-without-nav')
+<?php $__env->startSection('title'); ?>
+<?php echo app('translator')->get('pageTitle.login'); ?>
+<?php $__env->stopSection(); ?>
 
-@section('title')
-@lang('pageTitle.login')
-@endsection
-
-@section('css')
+<?php $__env->startSection('css'); ?>
 <!-- owl.carousel css -->
-    <link rel="stylesheet" href="{{ URL::asset('/build/libs/owl.carousel/assets/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('/build/libs/owl.carousel/assets/owl.theme.default.min.css') }}">
-@endsection
+    <link rel="stylesheet" href="<?php echo e(URL::asset('/build/libs/owl.carousel/assets/owl.carousel.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(URL::asset('/build/libs/owl.carousel/assets/owl.theme.default.min.css')); ?>">
+<?php $__env->stopSection(); ?>
 
-@section('body')
+<?php $__env->startSection('body'); ?>
 
 <body class="auth-body-bg">
-    @endsection
+    <?php $__env->stopSection(); ?>
 
-    @section('content')
+    <?php $__env->startSection('content'); ?>
 
     <div>
         <div class="container-fluid p-0">
@@ -86,7 +84,7 @@
                             <div class="d-flex flex-column h-100">
                                 <div class="mb-4 mb-md-3">
                                     <a href="index" class="d-block auth-logo">
-                                        <img src="{{ URL::asset('/build/images/logo-bakery-home-2.png') }}" alt="" height="80" class="auth-logo-dark">
+                                        <img src="<?php echo e(URL::asset('/build/images/logo-bakery-home-2.png')); ?>" alt="" height="80" class="auth-logo-dark">
                                     </a>
                                 </div>
                                 <div class="my-auto">
@@ -97,43 +95,64 @@
                                     </div>
 
                                     <div class="mt-4">
-                                        @component('components.alert')@endcomponent
-                                        <form id="form" data-parsley-validate class="form-horizontal" method="POST" action="{{ route('loginCheck') }}">
-                                            @csrf
+                                        <?php $__env->startComponent('components.alert'); ?><?php echo $__env->renderComponent(); ?>
+                                        <form id="form" data-parsley-validate class="form-horizontal" method="POST" action="<?php echo e(route('loginCheck')); ?>">
+                                            <?php echo csrf_field(); ?>
                                             <div class="mb-3">
                                                 <label for="username" class="form-label">Email</label>
                                                 <input name="email" type="email" class="form-control" id="username" placeholder="Email" 
-                                                required data-parsley-required-message="* {{  Config::get('validationMessage.login.email.required') }}" data-parsley-trigger="keyup">
-                                                <!-- @error('email')
+                                                required data-parsley-required-message="* <?php echo e(Config::get('validationMessage.login.email.required')); ?>" data-parsley-trigger="keyup">
+                                                <!-- <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                                 <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
+                                                    <strong><?php echo e($message); ?></strong>
                                                 </span>
-                                                @enderror -->
+                                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?> -->
                                             </div>
 
                                             <div class="mb-3">
                                                 <!-- <div class="float-end">
-                                                    @if (Route::has('password.request'))
-                                                    <a href="{{ route('password.request') }}" class="text-muted">Forgot password?</a>
-                                                    @endif
+                                                    <?php if(Route::has('password.request')): ?>
+                                                    <a href="<?php echo e(route('password.request')); ?>" class="text-muted">Forgot password?</a>
+                                                    <?php endif; ?>
                                                 </div> -->
                                                 <label class="form-label">Password</label>
-                                                <div class="input-group auth-pass-inputgroup @error('password') is-invalid @enderror">
+                                                <div class="input-group auth-pass-inputgroup <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>">
                                                     <input type="password" name="password" class="form-control" id="userpassword" placeholder="Password"
-                                                    required data-parsley-required-message="* {{  Config::get('validationMessage.login.password.required') }}" data-parsley-trigger="keyup"
+                                                    required data-parsley-required-message="* <?php echo e(Config::get('validationMessage.login.password.required')); ?>" data-parsley-trigger="keyup"
                                                     data-parsley-errors-container="#error">
                                                     <button class="btn btn-light " type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
-                                                    <!-- @error('password')
+                                                    <!-- <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                                     <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
+                                                        <strong><?php echo e($message); ?></strong>
                                                     </span>
-                                                    @enderror -->
+                                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?> -->
                                                 </div>
                                                 <div id="error"></div>
                                             </div>
 
                                             <!-- <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                                <input class="form-check-input" type="checkbox" id="remember" <?php echo e(old('remember') ? 'checked' : ''); ?>>
                                                 <label class="form-check-label" for="remember">
                                                     Remember me
                                                 </label>
@@ -167,7 +186,7 @@
                                             </div> -->
                                         </form>
                                         <div class="mt-5 text-center">
-                                            <p>Don't have an account ? <a href="{{ route('register') }}" class="fw-medium" style="color:#F2A0A0;"> Signup now </a> </p>
+                                            <p>Don't have an account ? <a href="<?php echo e(route('register')); ?>" class="fw-medium" style="color:#F2A0A0;"> Signup now </a> </p>
                                         </div>
                                     </div>
                                 </div>
@@ -191,10 +210,12 @@
         <!-- end container-fluid -->
     </div>
 
-    @endsection
-    @section('script')
+    <?php $__env->stopSection(); ?>
+    <?php $__env->startSection('script'); ?>
     <!-- owl.carousel js -->
-    <script src="{{ URL::asset('/build/libs/owl.carousel/owl.carousel.min.js') }}"></script>
+    <script src="<?php echo e(URL::asset('/build/libs/owl.carousel/owl.carousel.min.js')); ?>"></script>
     <!-- auth-2-carousel init -->
-    <script src="{{ URL::asset('/build/js/pages/auth-2-carousel.init.js') }}"></script>
-    @endsection
+    <script src="<?php echo e(URL::asset('/build/js/pages/auth-2-carousel.init.js')); ?>"></script>
+    <?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.master-without-nav', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\user\Documents\GitHub\IresymaBakerySystem\resources\views/auth/login.blade.php ENDPATH**/ ?>
