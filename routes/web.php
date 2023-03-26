@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Auth\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,14 +20,18 @@ use App\Http\Controllers\HomeController;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'root'])->name('root');
+Route::get('/', [HomeController::class, 'root'])->name('root');
 
-Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
-Route::post('/login-check', [App\Http\Controllers\Auth\LoginController::class, 'loginCheck'])->name('loginCheck');
-Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/login-check', [LoginController::class, 'loginCheck'])->name('loginCheck');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register');
-Route::post('/register-user', [App\Http\Controllers\Auth\RegisterController::class, 'registerUser'])->name('registerUser');
+Route::get('/register', [RegisterController::class, 'register'])->name('register');
+Route::post('/register-user', [RegisterController::class, 'registerUser'])->name('registerUser');
+
+Route::get('/view-profile', [ProfileController::class, 'view'])->name('profile.view');
+Route::get('/edit-profile', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::patch('/update-profile', [ProfileController::class, 'update'])->name('profile.update');
 
 //Update User Details
 Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');

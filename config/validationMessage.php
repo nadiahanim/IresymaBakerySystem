@@ -41,4 +41,23 @@ return [
             'regex' => 'Password must have at least one special character [!@#$%^&*-_]',
         ],
     ],
+    //--------------------------------------------------------------------------------------
+    //PROFILE
+    //--------------------------------------------------------------------------------------
+    'profile'=>  [
+        'name' => [
+            'required' => 'Please Enter Your Full Name',
+        ],
+        'phone_no' => [
+            'required' => 'Please Enter Your Telephone No.',
+        ],
+        'address' => [
+            'required' => 'Please Enter Your Home Address',
+        ],
+        'email' => [
+            'required' => 'Please Enter Your Email Address',
+            'email' => 'Please Enter A Valid Email Address',
+        ],
+    ],
+
 ];

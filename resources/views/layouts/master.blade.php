@@ -18,7 +18,6 @@
 @show
     <!-- Begin page -->
     <div id="layout-wrapper">
-        @include('layouts.topbar')
         @include('layouts.horizontal')
         <!-- ============================================================== -->
         <!-- Start right Content here -->
