@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\ProfileController;
+use App\Http\Controllers\BakeryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,10 @@ Route::post('/register-user', [RegisterController::class, 'registerUser'])->name
 Route::get('/view-profile', [ProfileController::class, 'view'])->name('profile.view');
 Route::get('/edit-profile', [ProfileController::class, 'edit'])->name('profile.edit');
 Route::patch('/update-profile', [ProfileController::class, 'update'])->name('profile.update');
+
+Route::get('/view-bakery', [BakeryController::class, 'view'])->name('bakery.view');
+Route::get('/edit-bakery', [BakeryController::class, 'edit'])->name('bakery.edit');
+Route::patch('/update-bakery', [BakeryController::class, 'update'])->name('bakery.update');
 
 //Update User Details
 Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');
