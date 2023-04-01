@@ -60,4 +60,22 @@ return [
         ],
     ],
 
+    //--------------------------------------------------------------------------------------
+    //BAKERY
+    //--------------------------------------------------------------------------------------
+    'bakery'=>  [
+        'name' => [
+            'required' => 'Please Enter Your Bakery Name',
+        ],
+        'phone_no' => [
+            'required' => 'Please Enter Your Bakery Telephone No.',
+        ],
+        'location' => [
+            'required' => 'Please Enter Your Bakery Address',
+        ],
+        'description' => [
+            'required' => 'Please Enter A Description',           
+        ],
+    ],
+
 ];
