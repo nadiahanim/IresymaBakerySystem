@@ -13,7 +13,7 @@
 <?php $__env->startComponent('components.alert'); ?><?php echo $__env->renderComponent(); ?>
 
 <?php $__env->startComponent('components.breadcrumb'); ?>
-<?php $__env->slot('title'); ?> Add New Servicet <?php $__env->endSlot(); ?>
+<?php $__env->slot('title'); ?> Add New Service <?php $__env->endSlot(); ?>
 <?php echo $__env->renderComponent(); ?>
 
 <div class="row">

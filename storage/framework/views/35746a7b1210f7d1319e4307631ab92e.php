@@ -21,7 +21,7 @@
 <?php $__env->startComponent('components.alert'); ?><?php echo $__env->renderComponent(); ?>
 
 <?php $__env->startComponent('components.breadcrumb'); ?>
-<?php $__env->slot('title'); ?> My Services <?php $__env->endSlot(); ?>
+<?php $__env->slot('title'); ?> Service Categories <?php $__env->endSlot(); ?>
 <?php echo $__env->renderComponent(); ?>
 
 <div class="row">
@@ -32,8 +32,6 @@
     </div>
     <div class="card">
         <div class="card-body">
-
-            <h4 class="card-title">Service Categories</h4>
 
             <!-- Nav tabs -->
             <ul class="nav nav-tabs nav-tabs-custom nav-justified" role="tablist">

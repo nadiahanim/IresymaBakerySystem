@@ -21,7 +21,7 @@
 @component('components.alert')@endcomponent
 
 @component('components.breadcrumb')
-@slot('title') My Services @endslot
+@slot('title') Service Categories @endslot
 @endcomponent
 
 <div class="row">
@@ -32,8 +32,6 @@
     </div>
     <div class="card">
         <div class="card-body">
-
-            <h4 class="card-title">Service Categories</h4>
 
             <!-- Nav tabs -->
             <ul class="nav nav-tabs nav-tabs-custom nav-justified" role="tablist">

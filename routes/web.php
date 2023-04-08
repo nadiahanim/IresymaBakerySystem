@@ -9,6 +9,8 @@ use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\BakeryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\CakeController;
+use App\Http\Controllers\CalendarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +58,13 @@ Route::post('/save-new-service', [ServiceController::class, 'save'])->name('serv
 Route::get('/edit-service', [ServiceController::class, 'edit'])->name('service.edit');
 Route::patch('/update-service', [ServiceController::class, 'update'])->name('service.update');
 Route::delete('/delete-service', [ServiceController::class, 'delete'])->name('service.delete');
+
+Route::get('/list-cake', [CakeController::class, 'index'])->name('cake.index');
+
+Route::get('/list-calendar', [CalendarController::class, 'index'])->name('calendar.index');
+Route::get('/edit-calendar', [CalendarController::class, 'edit'])->name('calendar.edit');
+Route::post('/save-new-calendar', [CalendarController::class, 'save'])->name('calendar.save');
+Route::delete('/delete-calendar', [CalendarController::class, 'delete'])->name('calendar.delete');
 
 //Update User Details
 Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');
