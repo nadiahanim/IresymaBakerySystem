@@ -33,7 +33,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="mt-4 text-center">
-                            <h5 class="mb-3 text-truncate"><a href="{{ route('product.view', ['product_id'=> $data->id])  }}" class="text-dark">{{ $data->product_name }}</a></h5>
+                            <h5 class="mb-3 text-truncate"><a href="{{ route('product.view', ['product_id'=> $data->id])  }}" class="text-dark" style="overflow-wrap: break-word;">{{ $data->product_name }}</a></h5>
                         </div>
                         <div class="product-img position-relative">
                             @if ($data->image_path)

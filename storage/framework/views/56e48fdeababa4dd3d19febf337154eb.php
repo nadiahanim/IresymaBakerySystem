@@ -176,7 +176,7 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle arrow-none" href="" id="topnav-dashboard" role="button">
+                            <a class="nav-link dropdown-toggle arrow-none" href="<?php echo e(route('cake.index')); ?>" id="topnav-dashboard" role="button">
                                 <i class="bx bx-cake me-2"></i><span key="t-dashboards">Cake Catalogue</span>
                             </a>
                         </li>
@@ -189,7 +189,7 @@
 
                             <div class="dropdown-menu" aria-labelledby="topnav-settings">
                             <div class="dropdown">
-                                <a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-layout-verti" role="button">
+                                <a class="dropdown-item dropdown-toggle arrow-none" href="<?php echo e(route('calendar.index')); ?>" id="topnav-layout-verti" role="button">
                                     <span key="t-vertical">Calendar</span>                                    
                                 </a>                               
                             </div>
