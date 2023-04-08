@@ -78,4 +78,51 @@ return [
         ],
     ],
 
+    //--------------------------------------------------------------------------------------
+    //PRODUCT
+    //--------------------------------------------------------------------------------------
+    'product'=>  [
+        'product_img' => [
+            'required' => 'Please choose an image',
+            'filemaxmegabytes' => 'Maximum size : 2MB',
+            'filemimetypes' => 'Picture format allowed : jpeg | jpg| png'
+        ],
+        'name' => [
+            'required' => 'Please Enter Product Name',
+        ],
+        'type' => [
+            'required' => 'Please Select Product Type',
+        ],
+        'brand' => [
+            'required' => 'Please Enter Product Brand',
+        ],
+        'description' => [
+            'required' => 'Please Enter A Description',           
+        ],
+        'ingredients' => [
+            'required' => 'Please Enter Product Ingredients',           
+        ],
+        'allergen' => [
+            'required' => 'Please Enter Product Allergens',           
+        ],
+        'price' => [
+            'required' => 'Please Enter Product Price',           
+        ],
+    ],
+
+    //--------------------------------------------------------------------------------------
+    //SERVICE
+    //--------------------------------------------------------------------------------------
+    'service'=>  [
+        'name' => [
+            'required' => 'Please Enter Service Name',
+        ],
+        'category' => [
+            'required' => 'Please Select Service Category',
+        ],
+        'price' => [
+            'required' => 'Please Enter Service Price',           
+        ],
+    ],
+
 ];

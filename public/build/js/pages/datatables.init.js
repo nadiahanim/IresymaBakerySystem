@@ -7,7 +7,7 @@ File: Datatables Js File
 */
 
 $(document).ready(function() {
-    $('#datatable').DataTable();
+    $('.dataTable').DataTable();
 
     //Buttons examples
     var table = $('#datatable-buttons').DataTable({

@@ -170,7 +170,7 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle arrow-none" href="" id="topnav-dashboard" role="button">
+                            <a class="nav-link dropdown-toggle arrow-none" href="{{ route('product.index') }}" id="topnav-dashboard" role="button">
                                 <i class="bx bx-food-menu me-2"></i><span key="t-dashboards">My Products</span>
                             </a>
                         </li>
@@ -195,7 +195,7 @@
                             </div>
 
                             <div class="dropdown">
-                                <a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-layout-hori" role="button">
+                                <a class="dropdown-item dropdown-toggle arrow-none" href="{{ route('service.index') }}" id="topnav-layout-hori" role="button">
                                     <span key="t-horizontal">My Services</span>                                    
                                 </a>                               
                             </div>

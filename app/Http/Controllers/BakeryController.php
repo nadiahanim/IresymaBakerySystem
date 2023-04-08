@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 use App\Models\Bakery;
+use App\Models\BakeryImage;
 
 class BakeryController extends Controller
 {
@@ -61,5 +63,25 @@ class BakeryController extends Controller
             ]);
         }
     }
+
+    public function updateImage(Request $request)
+    {
+        $file = $request->file('file');
+        dd($file);
+
+        if($request->file('file')) {
+            $filename = time().'.'.$file->getClientOriginalExtension();
+
+            $file->storeAs('public/images/bakery', $filename);
+
+            $bakery_image = new BakeryImage;
+
+            $bakery_image->bakery_id = 1;
+            $bakery_image->bakery_pic = $filename;
+            $bakery_image->updated_on = date('Y-m-d H:i:s');
+        }
+
+    }
+
 
 }

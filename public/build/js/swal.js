@@ -3,9 +3,12 @@
     $(document).on("click", ".swal-save", function(e){
         let thisButton = $(this);
 
-        e.preventDefault();
+        $("#form").parsley().validate();
 
-        Swal.fire({
+        if ($("#form").parsley().isValid()) {
+
+            e.preventDefault();
+            Swal.fire({
             title: "Are you sure you want to save the data?",
             icon: "warning",
             showCancelButton: !0,
@@ -13,13 +16,16 @@
             cancelButtonColor: "#74788d",
             confirmButtonText: "Save",
             cancelButtonText: "Cancel"
-        }).then(function(result) {
-            // if confirm clicked....
-            if (result.value)
-            {
-                thisButton.closest('form').trigger("submit");
-            }
-        })
+            }).then(function(result) {
+                // if confirm clicked....
+                if (result.value)
+                {
+                    thisButton.closest('form').trigger("submit");
+                }
+            })
+        }
+
+        e.preventDefault();        
     });
 
     $(document).on("click", ".swal-update", function(e){
