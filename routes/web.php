@@ -7,6 +7,8 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\BakeryController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +39,23 @@ Route::patch('/update-profile', [ProfileController::class, 'update'])->name('pro
 Route::get('/view-bakery', [BakeryController::class, 'view'])->name('bakery.view');
 Route::get('/edit-bakery', [BakeryController::class, 'edit'])->name('bakery.edit');
 Route::patch('/update-bakery', [BakeryController::class, 'update'])->name('bakery.update');
+Route::post('/upload-bakery-image', [BakeryController::class, 'uploadImage'])->name('bakery.uploadImage');
+Route::post('/update-bakery-image', [BakeryController::class, 'updateImage'])->name('bakery.updateImage');
+
+Route::get('/list-product', [ProductController::class, 'index'])->name('product.index');
+Route::get('/new-product', [ProductController::class, 'create'])->name('product.create');
+Route::post('/save-new-product', [ProductController::class, 'save'])->name('product.save');
+Route::get('/view-product', [ProductController::class, 'view'])->name('product.view');
+Route::get('/edit-product', [ProductController::class, 'edit'])->name('product.edit');
+Route::patch('/update-product', [ProductController::class, 'update'])->name('product.update');
+Route::delete('/delete-product', [ProductController::class, 'delete'])->name('product.delete');
+
+Route::get('/list-service', [ServiceController::class, 'index'])->name('service.index');
+Route::get('/new-service', [ServiceController::class, 'create'])->name('service.create');
+Route::post('/save-new-service', [ServiceController::class, 'save'])->name('service.save');
+Route::get('/edit-service', [ServiceController::class, 'edit'])->name('service.edit');
+Route::patch('/update-service', [ServiceController::class, 'update'])->name('service.update');
+Route::delete('/delete-service', [ServiceController::class, 'delete'])->name('service.delete');
 
 //Update User Details
 Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');
