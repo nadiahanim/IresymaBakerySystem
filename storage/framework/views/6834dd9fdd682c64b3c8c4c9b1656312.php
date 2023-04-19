@@ -69,5 +69,7 @@
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('script'); ?>
 <script src="<?php echo e(URL::asset('build/libs/select2/js/select2.min.js')); ?>"></script>
+<!-- form advanced init -->
+<script src="<?php echo e(URL::asset('/build/js/pages/form-advanced.init.js')); ?>"></script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\user\Documents\GitHub\IresymaBakerySystem\resources\views/Service/create.blade.php ENDPATH**/ ?>

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-@lang('Add New Service')
+@lang('Add New Price')
 @endsection
 
 @section('css')
@@ -13,7 +13,7 @@
 @component('components.alert')@endcomponent
 
 @component('components.breadcrumb')
-@slot('title') Add New Service @endslot
+@slot('title') Add New Price @endslot
 @endcomponent
 
 <div class="row">
@@ -24,7 +24,7 @@
                 {{ csrf_field() }} 
                             
                 <div class="mb-2 row">
-                    <label for="service_category" class="col-md-2 col-form-label control-label">Service Category</label>
+                    <label for="service_category" class="col-md-2 col-form-label control-label">Category</label>
                     <div class="col-md-10">
                         <select class="form-select select2" id="service_category" name="service_category"
                         required data-parsley-required-message="* {{  Config::get('validationMessage.service.category.required') }}" data-parsley-trigger="change">
@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="row mb-2">
-                    <label for="name" class="col-md-2 col-form-label control-label">Service Name</label>
+                    <label for="name" class="col-md-2 col-form-label control-label">Name</label>
                     <div class="col-md-10">
                         <input name="name" type="text" class="form-control" id="name"
                         required data-parsley-required-message="* {{  Config::get('validationMessage.service.name.required') }}" data-parsley-trigger="keyup">
@@ -69,4 +69,6 @@
 @endsection
 @section('script')
 <script src="{{ URL::asset('build/libs/select2/js/select2.min.js') }}"></script>
+<!-- form advanced init -->
+<script src="{{ URL::asset('/build/js/pages/form-advanced.init.js') }}"></script>
 @endsection

@@ -1,7 +1,7 @@
 
 
 <?php $__env->startSection('title'); ?>
-<?php echo app('translator')->get('My Services'); ?>
+<?php echo app('translator')->get('Pricing'); ?>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('css'); ?>
@@ -21,13 +21,13 @@
 <?php $__env->startComponent('components.alert'); ?><?php echo $__env->renderComponent(); ?>
 
 <?php $__env->startComponent('components.breadcrumb'); ?>
-<?php $__env->slot('title'); ?> Service Categories <?php $__env->endSlot(); ?>
+<?php $__env->slot('title'); ?> Pricing <?php $__env->endSlot(); ?>
 <?php echo $__env->renderComponent(); ?>
 
 <div class="row">
     <div class="row mb-2">
         <div class="col-sm-11 offset-sm-1">
-            <a type="button" href="<?php echo e(route('service.create')); ?>" class="btn float-end waves-effect waves-light" style="background-color:#F2A0A0;color:white;">Add New Service</a>
+            <a type="button" href="<?php echo e(route('service.create')); ?>" class="btn float-end waves-effect waves-light" style="background-color:#F2A0A0;color:white;">Add New Price</a>
         </div>
     </div>
     <div class="card">

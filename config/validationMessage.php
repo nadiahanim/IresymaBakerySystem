@@ -125,4 +125,40 @@ return [
         ],
     ],
 
+    //--------------------------------------------------------------------------------------
+    //CAKE
+    //--------------------------------------------------------------------------------------
+    'cake'=>  [
+        'cake_img' => [
+            'required' => 'Please choose an image',
+            'filemaxmegabytes' => 'Maximum size : 2MB',
+            'filemimetypes' => 'Picture format allowed : jpeg | jpg| png'
+        ],
+        'name' => [
+            'required' => 'Please Enter Cake Name',
+        ],
+        'description' => [
+            'required' => 'Please Enter Description',
+        ],
+        'shape' => [
+            'required' => 'Please Select Cake Shape',
+        ],
+        'flavour' => [
+            'required' => 'Please Select Cake Flavour',
+        ],
+        'cream' => [
+            'required' => 'Please Select Cream Flavour',
+        ],
+        'size' => [
+            'required' => 'Please Select Cake Size',
+        ],
+        'tier' => [
+            'required' => 'Please Select No. of Tier',
+        ],
+        'deco' => [
+            'required' => 'Please Select Cake Decoration',
+        ],
+        
+    ],
+
 ];
