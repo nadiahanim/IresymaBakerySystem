@@ -1,7 +1,7 @@
 
 
 <?php $__env->startSection('title'); ?>
-<?php echo app('translator')->get('Edit Service'); ?>
+<?php echo app('translator')->get('Edit Price'); ?>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('css'); ?>
@@ -13,7 +13,7 @@
 <?php $__env->startComponent('components.alert'); ?><?php echo $__env->renderComponent(); ?>
 
 <?php $__env->startComponent('components.breadcrumb'); ?>
-<?php $__env->slot('title'); ?> Edit Service <?php $__env->endSlot(); ?>
+<?php $__env->slot('title'); ?> Edit Price <?php $__env->endSlot(); ?>
 <?php echo $__env->renderComponent(); ?>
 
 <div class="row">
@@ -28,7 +28,7 @@
                 <input name="service_id" type="hidden" class="form-control" id="service_id" value="<?php echo e($service->id); ?>">
                             
                 <div class="mb-2 row">
-                    <label for="service_category" class="col-md-2 col-form-label control-label">Service Category</label>
+                    <label for="service_category" class="col-md-2 col-form-label control-label">Category</label>
                     <div class="col-md-10">
                         <select class="form-select select2" id="service_category" name="service_category"
                         required data-parsley-required-message="* <?php echo e(Config::get('validationMessage.service.category.required')); ?>" data-parsley-trigger="change">
@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="row mb-2">
-                    <label for="name" class="col-md-2 col-form-label control-label">Service Name</label>
+                    <label for="name" class="col-md-2 col-form-label control-label">Name</label>
                     <div class="col-md-10">
                         <input name="name" type="text" class="form-control" id="name" value="<?php echo e($service->name); ?>"
                         required data-parsley-required-message="* <?php echo e(Config::get('validationMessage.service.name.required')); ?>" data-parsley-trigger="keyup">
@@ -81,5 +81,7 @@
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('script'); ?>
 <script src="<?php echo e(URL::asset('build/libs/select2/js/select2.min.js')); ?>"></script>
+<!-- form advanced init -->
+<script src="<?php echo e(URL::asset('/build/js/pages/form-advanced.init.js')); ?>"></script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\user\Documents\GitHub\IresymaBakerySystem\resources\views/Service/edit.blade.php ENDPATH**/ ?>

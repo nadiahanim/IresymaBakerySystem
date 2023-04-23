@@ -60,6 +60,12 @@ Route::patch('/update-service', [ServiceController::class, 'update'])->name('ser
 Route::delete('/delete-service', [ServiceController::class, 'delete'])->name('service.delete');
 
 Route::get('/list-cake', [CakeController::class, 'index'])->name('cake.index');
+Route::get('/new-cake', [CakeController::class, 'create'])->name('cake.create');
+Route::post('/save-new-cake', [CakeController::class, 'save'])->name('cake.save');
+Route::get('/view-cake', [CakeController::class, 'view'])->name('cake.view');
+Route::get('/edit-cake', [CakeController::class, 'edit'])->name('cake.edit');
+Route::patch('/update-cake', [CakeController::class, 'update'])->name('cake.update');
+Route::delete('/delete-cake', [CakeController::class, 'delete'])->name('cake.delete');
 
 Route::get('/list-calendar', [CalendarController::class, 'index'])->name('calendar.index');
 Route::get('/edit-calendar', [CalendarController::class, 'edit'])->name('calendar.edit');

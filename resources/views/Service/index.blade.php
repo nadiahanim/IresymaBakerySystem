@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-@lang('My Services')
+@lang('Pricing')
 @endsection
 
 @section('css')
@@ -21,13 +21,13 @@
 @component('components.alert')@endcomponent
 
 @component('components.breadcrumb')
-@slot('title') Service Categories @endslot
+@slot('title') Pricing @endslot
 @endcomponent
 
 <div class="row">
     <div class="row mb-2">
         <div class="col-sm-11 offset-sm-1">
-            <a type="button" href="{{ route('service.create')  }}" class="btn float-end waves-effect waves-light" style="background-color:#F2A0A0;color:white;">Add New Service</a>
+            <a type="button" href="{{ route('service.create')  }}" class="btn float-end waves-effect waves-light" style="background-color:#F2A0A0;color:white;">Add New Price</a>
         </div>
     </div>
     <div class="card">

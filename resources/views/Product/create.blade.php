@@ -32,7 +32,7 @@
                         <div class="flex-grow-1 ">
                             <span class="text-danger">*</span>
                             <br>
-                            <label>Please upload an image of a product</label>
+                            <label>Please upload an image of the product</label>
                             <div class="col-md-7">
                                 <label class="input-group-text"  for="product_img">Choose An Image</label> 
                                 <input class="form-control" type="file" id="product_img" value="{{old('product_img')}}"

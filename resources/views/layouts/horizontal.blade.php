@@ -196,7 +196,7 @@
 
                             <div class="dropdown">
                                 <a class="dropdown-item dropdown-toggle arrow-none" href="{{ route('service.index') }}" id="topnav-layout-hori" role="button">
-                                    <span key="t-horizontal">My Services</span>                                    
+                                    <span key="t-horizontal">Pricing</span>                                    
                                 </a>                               
                             </div>
                         </div>
