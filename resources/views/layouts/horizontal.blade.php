@@ -209,7 +209,7 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle arrow-none" href="" id="topnav-dashboard" role="button">
+                            <a class="nav-link dropdown-toggle arrow-none" href="{{ route('recipe.index') }}" id="topnav-dashboard" role="button">
                                 <i class="bx bx-book-bookmark me-2"></i><span key="t-dashboards">My Recipes</span>
                             </a>
                         </li>
@@ -222,14 +222,20 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle arrow-none" href="" id="topnav-dashboard" role="button">
-                                <i class="bx bx-store me-2"></i><span key="t-dashboards">About Us</span>
+                            <a class="nav-link dropdown-toggle arrow-none" href="{{ route('bakery.custView') }}" id="topnav-dashboard" role="button">
+                                <i class="bx bx-store me-2"></i><span key="t-dashboards">Our Bakery</span>
                             </a>
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle arrow-none" href="" id="topnav-dashboard" role="button">
-                                <i class="bx bx-building me-2"></i><span key="t-dashboards">About Us</span>
+                            <a class="nav-link dropdown-toggle arrow-none" href="{{ route('product.index') }}" id="topnav-dashboard" role="button">
+                                <i class="bx bx-food-menu me-2"></i><span key="t-dashboards">In-Store Products</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle arrow-none" href="{{ route('cake.index') }}" id="topnav-dashboard" role="button">
+                                <i class="bx bx-cake me-2"></i><span key="t-dashboards">Cake Catalogue</span>
                             </a>
                         </li>
 

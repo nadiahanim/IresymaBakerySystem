@@ -76,9 +76,15 @@
             <div class="mb-3 row">
                 <div class="col-sm-11 offset-sm-1">
                     <a href="{{ route('product.edit', ['product_id'=> $product->id]) }}" class="btn btn-primary float-end">Edit</a>
+                    <a href="{{ route('product.index') }}" class="btn btn-secondary float-end me-2">@lang('button.back')</a>
                 </div>
             </div>
             @else
+            <div class="mb-3 row">
+                <div class="col-sm-11 offset-sm-1">
+                    <a href="{{ route('product.index') }}" class="btn btn-secondary float-end me-2">@lang('button.back')</a>
+                </div>
+            </div>
             @endif
 
         </div>

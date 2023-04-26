@@ -40,7 +40,15 @@
             <div class="row mb-2">
                 <label for="description" class="col-md-2 col-form-label control-label">Description</label>
                 <div class="col-md-10">                   
-                    <textarea class="form-control" name="description" rows="3" disabled>{{ $bakery_data->bakery_desc }}</textarea>
+                    <textarea id="elm1" name="description">{{ $bakery_data->bakery_desc }}</textarea>
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <label for="description" class="col-md-2 col-form-label control-label">Business Operation</label>
+                <div class="col-md-10">                   
+                    <input type="checkbox" id="switch3" switch="bool" name="operation" disabled {{ (($bakery_data->bakery_operation) == 1) ? 'checked' : ''; }}/>
+                    <label for="switch3" data-on-label="Open" data-off-label="Closed" style="width:75px;"></label>
                 </div>
             </div>
 
@@ -59,8 +67,12 @@
 @section('script')
 <!-- apexcharts -->
 <script src="{{ URL::asset('/build/libs/apexcharts/apexcharts.min.js') }}"></script>
-
 <!-- dashboard init -->
 <script src="{{ URL::asset('build/js/pages/dashboard.init.js') }}"></script>
-
+<!-- form advanced init -->
+<script src="{{ URL::asset('/build/js/pages/form-advanced.init.js') }}"></script>
+<!--tinymce js-->
+<script src="build/libs/tinymce/tinymce.min.js"></script>
+<!-- init js -->
+<script src="build/js/pages/form-editor.init.js"></script>
 @endsection

@@ -23,6 +23,16 @@ class BakeryController extends Controller
         ]);
     }
 
+    public function custView()
+    {
+        $bakery_data = Bakery::first();
+
+        return view('Bakery.custView', 
+        [
+            'bakery_data' => $bakery_data
+        ]);
+    }
+
     public function edit()
     {
         $bakery_data = Bakery::first();
@@ -40,12 +50,22 @@ class BakeryController extends Controller
         $phone_no = $request->phone_no;
         $description = $request->description;
 
+        if($request->operation)
+        {
+            $operation = 1;
+        }
+        else
+        {
+            $operation = 0;
+        }
+
         $bakery_data = Bakery::first();
 
         $bakery_data->bakery_name = $name;
         $bakery_data->bakery_location = $location;
         $bakery_data->bakery_contact = $phone_no;
         $bakery_data->bakery_desc = $description;
+        $bakery_data->bakery_operation = $operation;
         $bakery_data->updated_on = date('Y-m-d H:i:s');
 
         $saved = $bakery_data->save();

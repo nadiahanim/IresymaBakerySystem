@@ -120,8 +120,8 @@
                                             <td>{{ $data->price }}</td> 
                                             <td class="text-center">
                                                 <div class="btn-group" role="group">
-                                                    <a href="{{ route('service.edit', ['service_id' => $data->id]) }}" class="btn btn-warning btn-sm"><i class="mdi mdi-pencil mdi-18px"></i></a>&nbsp;
-                                                    <a class='btn btn-danger btn-sm swal-delete-list'><i class="mdi mdi-minus mdi-18px"></i></a>
+                                                    <a href="{{ route('service.edit', ['service_id' => $data->id]) }}" class="btn btn-soft-warning btn-sm"><i class="mdi mdi-pencil mdi-18px"></i></a>
+                                                    <a class='btn btn-soft-danger btn-sm swal-delete-list'><i class="mdi mdi-minus mdi-18px"></i></a>
                                                 </div>
                                                 <form id="delete-form" method="POST" action="{{ route('service.delete') }}">
                                                     {{ csrf_field() }} 
@@ -178,8 +178,8 @@
                                             <td>{{ $data->price }}</td> 
                                             <td class="text-center">
                                                 <div class="btn-group" role="group">
-                                                    <a href="{{ route('service.edit', ['service_id' => $data->id]) }}" class="btn btn-warning btn-sm"><i class="mdi mdi-pencil mdi-18px"></i></a>&nbsp;
-                                                    <a class='btn btn-danger btn-sm swal-delete-list'><i class="mdi mdi-minus mdi-18px"></i></a>
+                                                    <a href="{{ route('service.edit', ['service_id' => $data->id]) }}" class="btn btn-soft-warning btn-sm"><i class="mdi mdi-pencil mdi-18px"></i></a>
+                                                    <a class='btn btn-soft-danger btn-sm swal-delete-list'><i class="mdi mdi-minus mdi-18px"></i></a>
                                                 </div>
                                                 <form id="delete-form" method="POST" action="{{ route('service.delete') }}">
                                                     {{ csrf_field() }} 
@@ -236,8 +236,8 @@
                                             <td>{{ $data->price }}</td> 
                                             <td class="text-center">
                                                 <div class="btn-group" role="group">
-                                                    <a href="{{ route('service.edit', ['service_id' => $data->id]) }}" class="btn btn-warning btn-sm"><i class="mdi mdi-pencil mdi-18px"></i></a>&nbsp;
-                                                    <a class='btn btn-danger btn-sm swal-delete-list'><i class="mdi mdi-minus mdi-18px"></i></a>
+                                                    <a href="{{ route('service.edit', ['service_id' => $data->id]) }}" class="btn btn-soft-warning btn-sm"><i class="mdi mdi-pencil mdi-18px"></i></a>
+                                                    <a class='btn btn-soft-danger btn-sm swal-delete-list'><i class="mdi mdi-minus mdi-18px"></i></a>
                                                 </div>
                                                 <form id="delete-form" method="POST" action="{{ route('service.delete') }}">
                                                     {{ csrf_field() }} 
@@ -294,8 +294,8 @@
                                             <td>{{ $data->price }}</td> 
                                             <td class="text-center">
                                                 <div class="btn-group" role="group">
-                                                    <a href="{{ route('service.edit', ['service_id' => $data->id]) }}" class="btn btn-warning btn-sm"><i class="mdi mdi-pencil mdi-18px"></i></a>&nbsp;
-                                                    <a class='btn btn-danger btn-sm swal-delete-list'><i class="mdi mdi-minus mdi-18px"></i></a>
+                                                    <a href="{{ route('service.edit', ['service_id' => $data->id]) }}" class="btn btn-soft-warning btn-sm"><i class="mdi mdi-pencil mdi-18px"></i></a>
+                                                    <a class='btn btn-soft-danger btn-sm swal-delete-list'><i class="mdi mdi-minus mdi-18px"></i></a>
                                                 </div>
                                                 <form id="delete-form" method="POST" action="{{ route('service.delete') }}">
                                                     {{ csrf_field() }} 
@@ -352,8 +352,8 @@
                                             <td>{{ $data->price }}</td> 
                                             <td class="text-center">
                                                 <div class="btn-group" role="group">
-                                                    <a href="{{ route('service.edit', ['service_id' => $data->id]) }}" class="btn btn-warning btn-sm"><i class="mdi mdi-pencil mdi-18px"></i></a>&nbsp;
-                                                    <a class='btn btn-danger btn-sm swal-delete-list'><i class="mdi mdi-minus mdi-18px"></i></a>
+                                                    <a href="{{ route('service.edit', ['service_id' => $data->id]) }}" class="btn btn-soft-warning btn-sm"><i class="mdi mdi-pencil mdi-18px"></i></a>
+                                                    <a class='btn btn-soft-danger btn-sm swal-delete-list'><i class="mdi mdi-minus mdi-18px"></i></a>
                                                 </div>
                                                 <form id="delete-form" method="POST" action="{{ route('service.delete') }}">
                                                     {{ csrf_field() }} 
@@ -410,8 +410,8 @@
                                             <td>{{ $data->price }}</td> 
                                             <td class="text-center">
                                                 <div class="btn-group" role="group">
-                                                    <a href="{{ route('service.edit', ['service_id' => $data->id]) }}" class="btn btn-warning btn-sm"><i class="mdi mdi-pencil mdi-18px"></i></a>&nbsp;
-                                                    <a class='btn btn-danger btn-sm swal-delete-list'><i class="mdi mdi-minus mdi-18px"></i></a>
+                                                    <a href="{{ route('service.edit', ['service_id' => $data->id]) }}" class="btn btn-soft-warning btn-sm"><i class="mdi mdi-pencil mdi-18px"></i></a>
+                                                    <a class='btn btn-soft-danger btn-sm swal-delete-list'><i class="mdi mdi-minus mdi-18px"></i></a>
                                                 </div>
                                                 <form id="delete-form" method="POST" action="{{ route('service.delete') }}">
                                                     {{ csrf_field() }} 
@@ -461,15 +461,15 @@
                                         </tr>
                                     </thead>
                                     <tbody class="field_wrapper">
-                                        @foreach($service_6 as $i => $data)
+                                        @foreach($service_7 as $i => $data)
                                         <tr>
                                             <th class="text-center" >{{ $loop->iteration }}</th>
                                             <td>{{ $data->name }}</td> 
                                             <td>{{ $data->price }}</td> 
                                             <td class="text-center">
                                                 <div class="btn-group" role="group">
-                                                    <a href="{{ route('service.edit', ['service_id' => $data->id]) }}" class="btn btn-warning btn-sm"><i class="mdi mdi-pencil mdi-18px"></i></a>&nbsp;
-                                                    <a class='btn btn-danger btn-sm swal-delete-list'><i class="mdi mdi-minus mdi-18px"></i></a>
+                                                    <a href="{{ route('service.edit', ['service_id' => $data->id]) }}" class="btn btn-soft-warning btn-sm"><i class="mdi mdi-pencil mdi-18px"></i></a>
+                                                    <a class='btn btn-soft-danger btn-sm swal-delete-list'><i class="mdi mdi-minus mdi-18px"></i></a>
                                                 </div>
                                                 <form id="delete-form" method="POST" action="{{ route('service.delete') }}">
                                                     {{ csrf_field() }} 

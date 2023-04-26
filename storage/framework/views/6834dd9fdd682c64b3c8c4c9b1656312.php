@@ -1,7 +1,7 @@
 
 
 <?php $__env->startSection('title'); ?>
-<?php echo app('translator')->get('Add New Service'); ?>
+<?php echo app('translator')->get('Add New Price'); ?>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('css'); ?>
@@ -13,7 +13,7 @@
 <?php $__env->startComponent('components.alert'); ?><?php echo $__env->renderComponent(); ?>
 
 <?php $__env->startComponent('components.breadcrumb'); ?>
-<?php $__env->slot('title'); ?> Add New Service <?php $__env->endSlot(); ?>
+<?php $__env->slot('title'); ?> Add New Price <?php $__env->endSlot(); ?>
 <?php echo $__env->renderComponent(); ?>
 
 <div class="row">
@@ -24,7 +24,7 @@
                 <?php echo e(csrf_field()); ?> 
                             
                 <div class="mb-2 row">
-                    <label for="service_category" class="col-md-2 col-form-label control-label">Service Category</label>
+                    <label for="service_category" class="col-md-2 col-form-label control-label">Category</label>
                     <div class="col-md-10">
                         <select class="form-select select2" id="service_category" name="service_category"
                         required data-parsley-required-message="* <?php echo e(Config::get('validationMessage.service.category.required')); ?>" data-parsley-trigger="change">
@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="row mb-2">
-                    <label for="name" class="col-md-2 col-form-label control-label">Service Name</label>
+                    <label for="name" class="col-md-2 col-form-label control-label">Name</label>
                     <div class="col-md-10">
                         <input name="name" type="text" class="form-control" id="name"
                         required data-parsley-required-message="* <?php echo e(Config::get('validationMessage.service.name.required')); ?>" data-parsley-trigger="keyup">

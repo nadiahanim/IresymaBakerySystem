@@ -19,12 +19,14 @@
 </style>
 
 <div class="row">
-
+<?php if(isset(Auth::user()->user_type) && Auth::user()->user_type == 1): ?>
     <div class="row mb-2">
         <div class="col-sm-11 offset-sm-1">
             <a type="button" href="<?php echo e(route('product.create')); ?>" class="btn float-end waves-effect waves-light" style="background-color:#F2A0A0;color:white;">Add New Product</a>
         </div>
     </div>
+<?php else: ?>
+<?php endif; ?>
 
     <div class="card-body">
         <div class="row" id="product-list">

@@ -56,21 +56,30 @@
                 <div class="row mb-2">
                     <label for="description" class="col-md-2 col-form-label control-label">Description</label>
                     <div class="col-md-10">                   
-                        <textarea class="form-control" name="description" rows="3"
+                        <textarea id="elm1" name="description"
                         required data-parsley-required-message="* {{  Config::get('validationMessage.bakery.description.required') }}" data-parsley-trigger="keyup">{{ $bakery_data->bakery_desc }}</textarea>
                     </div>
                 </div>
 
+                <div class="row mb-2">
+                    <label for="description" class="col-md-2 col-form-label control-label">Business Operation</label>
+                    <div class="col-md-10">                   
+                        <input type="checkbox" id="switch3" switch="bool" name="operation" checked />
+                        <label for="switch3" data-on-label="Open" data-off-label="Closed" style="width:75px;"></label>
+                    </div>
+                </div>
+                
+
                 <div class="mb-3 row">
                     <div class="col-sm-12">
                         <button type="submit" class="btn btn-primary float-end swal-update">@lang('button.save')</button>
-                        <!-- <a href="{{ route('bakery.view') }}" class="btn btn-secondary float-end me-2">@lang('button.back')</a> -->
+                        <a href="{{ route('bakery.view') }}" class="btn btn-secondary float-end me-2">@lang('button.back')</a>
                     </div>
                 </div>
 
             </form>
 
-            <h4 class="card-title mb-3">Bakery Images</h4>
+            <!-- <h4 class="card-title mb-3">Bakery Images</h4> -->
             <!-- <form id="upload-image" class="dropzone" action="{{ route('bakery.updateImage') }}" enctype="multipart/form-data">
             {{ csrf_field() }} 
             
@@ -94,26 +103,11 @@
 
             </form> -->
 
-            <form action="{{ route('bakery.updateImage') }}" method="post" class="dropzone" enctype="multipart/form-data">
-                @csrf
-                        <div class="fallback">
-                            <input name="file" type="file" multiple />
-                        </div>
-
-                        <div class="dz-message needsclick">
-                            <div class="mb-3">
-                                <i class="display-4 text-muted bx bxs-cloud-upload"></i>
-                            </div>
-
-                            <h4>Drop files here or click to upload.</h4>
-                        </div>
-                    </form>
-
-            <div class="mb-3 pt-2 row">
+            <!-- <div class="mb-3 pt-2 row">
                 <div class="col-sm-12">
                     <a href="{{ route('bakery.view') }}" class="btn btn-secondary float-end me-2">@lang('button.back')</a>
                 </div>
-            </div>
+            </div> -->
 
         </div>
     </div>
@@ -125,7 +119,13 @@
 
 @section('script')
     
-    <!-- Plugins js -->
-    <script src="{{ URL::asset('build/libs/dropzone/min/dropzone.min.js') }}"></script>
+<!-- Plugins js -->
+<script src="{{ URL::asset('build/libs/dropzone/min/dropzone.min.js') }}"></script>
+<!-- form advanced init -->
+<script src="{{ URL::asset('/build/js/pages/form-advanced.init.js') }}"></script>
+<!--tinymce js-->
+<script src="build/libs/tinymce/tinymce.min.js"></script>
+<!-- init js -->
+<script src="build/js/pages/form-editor.init.js"></script>
 
 @endsection
