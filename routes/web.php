@@ -11,6 +11,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\CakeController;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\RecipeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,7 @@ Route::get('/edit-profile', [ProfileController::class, 'edit'])->name('profile.e
 Route::patch('/update-profile', [ProfileController::class, 'update'])->name('profile.update');
 
 Route::get('/view-bakery', [BakeryController::class, 'view'])->name('bakery.view');
+Route::get('/view-bakery-info', [BakeryController::class, 'custView'])->name('bakery.custView');
 Route::get('/edit-bakery', [BakeryController::class, 'edit'])->name('bakery.edit');
 Route::patch('/update-bakery', [BakeryController::class, 'update'])->name('bakery.update');
 Route::post('/upload-bakery-image', [BakeryController::class, 'uploadImage'])->name('bakery.uploadImage');
@@ -71,6 +73,14 @@ Route::get('/list-calendar', [CalendarController::class, 'index'])->name('calend
 Route::get('/edit-calendar', [CalendarController::class, 'edit'])->name('calendar.edit');
 Route::post('/save-new-calendar', [CalendarController::class, 'save'])->name('calendar.save');
 Route::delete('/delete-calendar', [CalendarController::class, 'delete'])->name('calendar.delete');
+
+Route::get('/list-recipe', [RecipeController::class, 'index'])->name('recipe.index');
+Route::get('/new-recipe', [RecipeController::class, 'create'])->name('recipe.create');
+Route::post('/save-new-recipe', [RecipeController::class, 'save'])->name('recipe.save');
+Route::get('/view-recipe', [RecipeController::class, 'view'])->name('recipe.view');
+Route::get('/edit-recipe', [RecipeController::class, 'edit'])->name('recipe.edit');
+Route::patch('/update-recipe', [RecipeController::class, 'update'])->name('recipe.update');
+Route::delete('/delete-recipe', [RecipeController::class, 'delete'])->name('recipe.delete');
 
 //Update User Details
 Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');

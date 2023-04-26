@@ -77,9 +77,15 @@
             <div class="mb-3 row">
                 <div class="col-sm-11 offset-sm-1">
                     <a href="<?php echo e(route('product.edit', ['product_id'=> $product->id])); ?>" class="btn btn-primary float-end">Edit</a>
+                    <a href="<?php echo e(route('product.index')); ?>" class="btn btn-secondary float-end me-2"><?php echo app('translator')->get('button.back'); ?></a>
                 </div>
             </div>
             <?php else: ?>
+            <div class="mb-3 row">
+                <div class="col-sm-11 offset-sm-1">
+                    <a href="<?php echo e(route('product.index')); ?>" class="btn btn-secondary float-end me-2"><?php echo app('translator')->get('button.back'); ?></a>
+                </div>
+            </div>
             <?php endif; ?>
 
         </div>

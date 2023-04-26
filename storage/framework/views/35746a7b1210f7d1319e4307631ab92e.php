@@ -120,8 +120,8 @@
                                             <td><?php echo e($data->price); ?></td> 
                                             <td class="text-center">
                                                 <div class="btn-group" role="group">
-                                                    <a href="<?php echo e(route('service.edit', ['service_id' => $data->id])); ?>" class="btn btn-warning btn-sm"><i class="mdi mdi-pencil mdi-18px"></i></a>&nbsp;
-                                                    <a class='btn btn-danger btn-sm swal-delete-list'><i class="mdi mdi-minus mdi-18px"></i></a>
+                                                    <a href="<?php echo e(route('service.edit', ['service_id' => $data->id])); ?>" class="btn btn-soft-warning btn-sm"><i class="mdi mdi-pencil mdi-18px"></i></a>
+                                                    <a class='btn btn-soft-danger btn-sm swal-delete-list'><i class="mdi mdi-minus mdi-18px"></i></a>
                                                 </div>
                                                 <form id="delete-form" method="POST" action="<?php echo e(route('service.delete')); ?>">
                                                     <?php echo e(csrf_field()); ?> 
@@ -179,8 +179,8 @@
                                             <td><?php echo e($data->price); ?></td> 
                                             <td class="text-center">
                                                 <div class="btn-group" role="group">
-                                                    <a href="<?php echo e(route('service.edit', ['service_id' => $data->id])); ?>" class="btn btn-warning btn-sm"><i class="mdi mdi-pencil mdi-18px"></i></a>&nbsp;
-                                                    <a class='btn btn-danger btn-sm swal-delete-list'><i class="mdi mdi-minus mdi-18px"></i></a>
+                                                    <a href="<?php echo e(route('service.edit', ['service_id' => $data->id])); ?>" class="btn btn-soft-warning btn-sm"><i class="mdi mdi-pencil mdi-18px"></i></a>
+                                                    <a class='btn btn-soft-danger btn-sm swal-delete-list'><i class="mdi mdi-minus mdi-18px"></i></a>
                                                 </div>
                                                 <form id="delete-form" method="POST" action="<?php echo e(route('service.delete')); ?>">
                                                     <?php echo e(csrf_field()); ?> 
@@ -238,8 +238,8 @@
                                             <td><?php echo e($data->price); ?></td> 
                                             <td class="text-center">
                                                 <div class="btn-group" role="group">
-                                                    <a href="<?php echo e(route('service.edit', ['service_id' => $data->id])); ?>" class="btn btn-warning btn-sm"><i class="mdi mdi-pencil mdi-18px"></i></a>&nbsp;
-                                                    <a class='btn btn-danger btn-sm swal-delete-list'><i class="mdi mdi-minus mdi-18px"></i></a>
+                                                    <a href="<?php echo e(route('service.edit', ['service_id' => $data->id])); ?>" class="btn btn-soft-warning btn-sm"><i class="mdi mdi-pencil mdi-18px"></i></a>
+                                                    <a class='btn btn-soft-danger btn-sm swal-delete-list'><i class="mdi mdi-minus mdi-18px"></i></a>
                                                 </div>
                                                 <form id="delete-form" method="POST" action="<?php echo e(route('service.delete')); ?>">
                                                     <?php echo e(csrf_field()); ?> 
@@ -297,8 +297,8 @@
                                             <td><?php echo e($data->price); ?></td> 
                                             <td class="text-center">
                                                 <div class="btn-group" role="group">
-                                                    <a href="<?php echo e(route('service.edit', ['service_id' => $data->id])); ?>" class="btn btn-warning btn-sm"><i class="mdi mdi-pencil mdi-18px"></i></a>&nbsp;
-                                                    <a class='btn btn-danger btn-sm swal-delete-list'><i class="mdi mdi-minus mdi-18px"></i></a>
+                                                    <a href="<?php echo e(route('service.edit', ['service_id' => $data->id])); ?>" class="btn btn-soft-warning btn-sm"><i class="mdi mdi-pencil mdi-18px"></i></a>
+                                                    <a class='btn btn-soft-danger btn-sm swal-delete-list'><i class="mdi mdi-minus mdi-18px"></i></a>
                                                 </div>
                                                 <form id="delete-form" method="POST" action="<?php echo e(route('service.delete')); ?>">
                                                     <?php echo e(csrf_field()); ?> 
@@ -356,8 +356,8 @@
                                             <td><?php echo e($data->price); ?></td> 
                                             <td class="text-center">
                                                 <div class="btn-group" role="group">
-                                                    <a href="<?php echo e(route('service.edit', ['service_id' => $data->id])); ?>" class="btn btn-warning btn-sm"><i class="mdi mdi-pencil mdi-18px"></i></a>&nbsp;
-                                                    <a class='btn btn-danger btn-sm swal-delete-list'><i class="mdi mdi-minus mdi-18px"></i></a>
+                                                    <a href="<?php echo e(route('service.edit', ['service_id' => $data->id])); ?>" class="btn btn-soft-warning btn-sm"><i class="mdi mdi-pencil mdi-18px"></i></a>
+                                                    <a class='btn btn-soft-danger btn-sm swal-delete-list'><i class="mdi mdi-minus mdi-18px"></i></a>
                                                 </div>
                                                 <form id="delete-form" method="POST" action="<?php echo e(route('service.delete')); ?>">
                                                     <?php echo e(csrf_field()); ?> 
@@ -415,8 +415,8 @@
                                             <td><?php echo e($data->price); ?></td> 
                                             <td class="text-center">
                                                 <div class="btn-group" role="group">
-                                                    <a href="<?php echo e(route('service.edit', ['service_id' => $data->id])); ?>" class="btn btn-warning btn-sm"><i class="mdi mdi-pencil mdi-18px"></i></a>&nbsp;
-                                                    <a class='btn btn-danger btn-sm swal-delete-list'><i class="mdi mdi-minus mdi-18px"></i></a>
+                                                    <a href="<?php echo e(route('service.edit', ['service_id' => $data->id])); ?>" class="btn btn-soft-warning btn-sm"><i class="mdi mdi-pencil mdi-18px"></i></a>
+                                                    <a class='btn btn-soft-danger btn-sm swal-delete-list'><i class="mdi mdi-minus mdi-18px"></i></a>
                                                 </div>
                                                 <form id="delete-form" method="POST" action="<?php echo e(route('service.delete')); ?>">
                                                     <?php echo e(csrf_field()); ?> 
@@ -467,15 +467,15 @@
                                         </tr>
                                     </thead>
                                     <tbody class="field_wrapper">
-                                        <?php $__currentLoopData = $service_6; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php $__currentLoopData = $service_7; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <tr>
                                             <th class="text-center" ><?php echo e($loop->iteration); ?></th>
                                             <td><?php echo e($data->name); ?></td> 
                                             <td><?php echo e($data->price); ?></td> 
                                             <td class="text-center">
                                                 <div class="btn-group" role="group">
-                                                    <a href="<?php echo e(route('service.edit', ['service_id' => $data->id])); ?>" class="btn btn-warning btn-sm"><i class="mdi mdi-pencil mdi-18px"></i></a>&nbsp;
-                                                    <a class='btn btn-danger btn-sm swal-delete-list'><i class="mdi mdi-minus mdi-18px"></i></a>
+                                                    <a href="<?php echo e(route('service.edit', ['service_id' => $data->id])); ?>" class="btn btn-soft-warning btn-sm"><i class="mdi mdi-pencil mdi-18px"></i></a>
+                                                    <a class='btn btn-soft-danger btn-sm swal-delete-list'><i class="mdi mdi-minus mdi-18px"></i></a>
                                                 </div>
                                                 <form id="delete-form" method="POST" action="<?php echo e(route('service.delete')); ?>">
                                                     <?php echo e(csrf_field()); ?> 
