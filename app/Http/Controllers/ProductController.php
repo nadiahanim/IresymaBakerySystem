@@ -178,4 +178,26 @@ class ProductController extends Controller
         }
     }
 
+    public function ajaxUpdateQuantity(Request $request)
+    {
+        $product_id = $request->product_id;
+        $quantity = $request->quantity;
+
+        $product = Product::where([['id',$product_id]])->first();
+
+        $product->quantity = $quantity;
+        $product->updated_on = date('Y-m-d H:i:s');
+
+        $saved = $product->save();
+
+        if($saved)
+        {
+            return response()->json(201);
+        }
+        else 
+        {
+
+        }
+    }
+
 }

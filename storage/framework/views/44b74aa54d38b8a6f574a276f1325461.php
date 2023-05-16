@@ -2,6 +2,18 @@
 
 <?php $__env->startSection('title'); ?> <?php echo app('translator')->get('translation.Dashboards'); ?> <?php $__env->stopSection(); ?>
 
+<?php $__env->startSection('css'); ?>
+    <link href="<?php echo e(URL::asset('build/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css')); ?>" rel="stylesheet" type="text/css" />
+    <!-- DataTables -->
+    <link href="<?php echo e(URL::asset('build/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css')); ?>" rel="stylesheet"
+        type="text/css" />
+    <link href="<?php echo e(URL::asset('build/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')); ?>" rel="stylesheet"
+        type="text/css" />
+    <!-- Responsive datatable examples -->
+    <link href="<?php echo e(URL::asset('build/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')); ?>"
+        rel="stylesheet" type="text/css" />
+<?php $__env->stopSection(); ?>
+
 <?php $__env->startSection('content'); ?>
 
 <?php $__env->startComponent('components.alert'); ?><?php echo $__env->renderComponent(); ?>
@@ -153,28 +165,53 @@
         </div>
         <!-- end row -->
 
+        <?php if(isset(Auth::user()->user_type) && Auth::user()->user_type == 1): ?>
         <div class="card">
             <div class="card-body">
-                <div class="d-sm-flex flex-wrap">
-                    <h4 class="card-title mb-4">Email Sent</h4>
-                    <div class="ms-auto">
-                        <ul class="nav nav-pills">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Week</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Month</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">Year</a>
-                            </li>
-                        </ul>
-                    </div>
+                <p class="text-muted fw-medium">Product List</p>
+                <div class="table-responsive mb-4">
+                    <input type="hidden" name="total_row" id="total_row">
+                    <table id="datatable-delivery" class="table table-bordered dt-responsive nowrap w-100 dataTable" role="grid">
+                        <thead class="table-light">
+                            <tr role="row">
+                                <th class="text-center" width="3%">
+                                    <div class="form-group">
+                                        <label class="col-form-label control-label">No.</label>
+                                    </div>
+                                </th>
+                                <th class="text-center">
+                                    <div class="form-group">
+                                        <label class="col-form-label control-label">Name</label>
+                                    </div>
+                                </th>
+                                <th class="text-center" width="25%">
+                                    <div class="form-group">
+                                        <label class="col-form-label control-label">Quantity</label>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="field_wrapper_product_list">
+                            <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <tr>
+                                <th class="text-center" ><?php echo e($loop->iteration); ?></th>
+                                <td><?php echo e($data->product_name); ?></td> 
+                                <td>
+                                    <form>
+                                    <?php echo e(csrf_field()); ?> 
+                                        <input type="hidden" id="product_id_<?php echo e($i); ?>" name="product_id" value="<?php echo e($data->id); ?>">
+                                        <input data-toggle="touchspin" type="text" id="quantity_<?php echo e($i); ?>" name="quantity" class="form-control" value="<?php echo e($data->quantity); ?>" style="text-align: center;" onchange="updateQuantity(<?php echo e($i); ?>)">
+                                    </form>
+                                </td> 
+                            </tr>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </tbody>
+                    </table>
                 </div>
-
-                <div id="stacked-column-chart" data-colors='["--bs-primary", "--bs-warning", "--bs-success"]' class="apex-charts" dir="ltr"></div>
             </div>
         </div>
+        <?php else: ?>
+        <?php endif; ?>
     </div>
 </div>
 <!-- end row -->
@@ -581,10 +618,28 @@
 
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('script'); ?>
+<script src="<?php echo e(URL::asset('build/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')); ?>"></script>
+<script>
+    $("input[name='quantity']").TouchSpin({
+        min: 0,
+        max: 600,
+        step: 1,
+    });
+</script>
 <!-- apexcharts -->
 <script src="<?php echo e(URL::asset('/build/libs/apexcharts/apexcharts.min.js')); ?>"></script>
-
 <!-- dashboard init -->
 <script src="<?php echo e(URL::asset('build/js/pages/dashboard.init.js')); ?>"></script>
+<!-- Required datatable js -->
+<script src="<?php echo e(URL::asset('build/libs/datatables.net/js/jquery.dataTables.min.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('build/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')); ?>"></script>
+<!-- Responsive examples -->
+<script src="<?php echo e(URL::asset('build/libs/datatables.net-responsive/js/dataTables.responsive.min.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('build/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')); ?>"></script>
+<!-- Datatable init js -->
+<script src="<?php echo e(URL::asset('/build/js/pages/datatables.init.js')); ?>"></script>
+
+
+<script src="<?php echo e(URL::asset('/build/js/pages/HomeAdmin/product.js')); ?>"></script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\user\Documents\GitHub\IresymaBakerySystem\resources\views/index.blade.php ENDPATH**/ ?>
