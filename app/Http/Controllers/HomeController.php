@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
+use App\Models\Product;
 
 class HomeController extends Controller
 {
@@ -36,7 +37,11 @@ class HomeController extends Controller
 
     public function root()
     {
-        return view('index');
+        $products = Product::where([['status_data',1]])->get();
+
+        return view('index',[
+            'products' => $products
+        ]);
     }
 
     /*Language Translation*/

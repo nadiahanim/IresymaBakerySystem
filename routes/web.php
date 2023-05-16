@@ -12,6 +12,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\CakeController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ use App\Http\Controllers\RecipeController;
 Auth::routes();
 
 Route::get('/', [HomeController::class, 'root'])->name('root');
+Route::post('/ajax-update-product-quantity', [ProductController::class, 'ajaxUpdateQuantity'])->name('product.ajaxUpdateQuantity');
 
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login-check', [LoginController::class, 'loginCheck'])->name('loginCheck');
@@ -81,6 +83,8 @@ Route::get('/view-recipe', [RecipeController::class, 'view'])->name('recipe.view
 Route::get('/edit-recipe', [RecipeController::class, 'edit'])->name('recipe.edit');
 Route::patch('/update-recipe', [RecipeController::class, 'update'])->name('recipe.update');
 Route::delete('/delete-recipe', [RecipeController::class, 'delete'])->name('recipe.delete');
+
+Route::get('/new-order', [OrderController::class, 'create'])->name('order.create');
 
 //Update User Details
 Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');

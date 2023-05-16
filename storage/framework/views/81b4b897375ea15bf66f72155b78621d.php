@@ -71,11 +71,62 @@
             </div>
 
             <div class="row mb-2">
+                <div>
+                    <p class="text-primary"><i class="bx bx-clock font-size-16 align-middle text-danger me-1"></i>Operating Hours</p>
+                    <table width="60%">
+                        <tr>
+                            <td width="5%"><?php echo e($operating_hour[0]->day); ?></td>
+                            <td width="10%"><?php echo e(date('h:i a', strtotime($operating_hour[0]->start_hour))); ?> - <?php echo e(date('h:i a', strtotime($operating_hour[0]->end_hour))); ?></td>
+                        </tr>
+                        <tr>
+                            <td width="5%"><?php echo e($operating_hour[1]->day); ?></td>
+                            <td width="10%"><?php echo e(date('h:i a', strtotime($operating_hour[1]->start_hour))); ?> - <?php echo e(date('h:i a', strtotime($operating_hour[1]->end_hour))); ?></td>
+                        </tr>
+                        <tr>
+                            <td width="5%"><?php echo e($operating_hour[2]->day); ?></td>
+                            <td width="10%"><?php echo e(date('h:i a', strtotime($operating_hour[2]->start_hour))); ?> - <?php echo e(date('h:i a', strtotime($operating_hour[2]->end_hour))); ?></td>
+                        </tr>
+                        <tr>
+                            <td width="5%"><?php echo e($operating_hour[3]->day); ?></td>
+                            <td width="10%"><?php echo e(date('h:i a', strtotime($operating_hour[3]->start_hour))); ?> - <?php echo e(date('h:i a', strtotime($operating_hour[3]->end_hour))); ?></td>
+                        </tr>
+                        <tr>
+                            <td width="5%"><?php echo e($operating_hour[4]->day); ?></td>
+                            <td width="10%"><?php echo e(date('h:i a', strtotime($operating_hour[4]->start_hour))); ?> - <?php echo e(date('h:i a', strtotime($operating_hour[4]->end_hour))); ?></td>
+                        </tr>
+                        <tr>
+                            <td width="5%"><?php echo e($operating_hour[5]->day); ?></td>
+                            <td width="10%"><?php echo e(date('h:i a', strtotime($operating_hour[5]->start_hour))); ?> - <?php echo e(date('h:i a', strtotime($operating_hour[5]->end_hour))); ?></td>
+                        </tr>
+                        <tr>
+                            <td width="5%"><?php echo e($operating_hour[6]->day); ?></td>
+                            <td width="10%"><?php echo e(date('h:i a', strtotime($operating_hour[6]->start_hour))); ?> - <?php echo e(date('h:i a', strtotime($operating_hour[6]->end_hour))); ?></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <br>
+
+            <?php if($bakery_data->operation_type == 1): ?> 
+            <!-- operating hours -->
+            <div class="row mb-2">
+            <p class="text-info">We are : </p>
+                <div class="col-md-10">                   
+                    <input type="checkbox" id="switch3" switch="bool" name="operation" disabled <?php echo e(($auto_operation == 1) ? 'checked' : ''); ?>/>
+                    <label for="switch3" data-on-label="Open" data-off-label="Closed" style="width:75px;"></label>
+                </div>
+            </div>
+            <?php else: ?>
+            <!-- manual -->
+            <div class="row mb-2">
+            <p class="text-muted">Today we are : </p>
                 <div class="col-md-10">                   
                     <input type="checkbox" id="switch3" switch="bool" name="operation" disabled <?php echo e((($bakery_data->bakery_operation) == 1) ? 'checked' : ''); ?>/>
                     <label for="switch3" data-on-label="Open" data-off-label="Closed" style="width:75px;"></label>
                 </div>
             </div>
+            <?php endif; ?>
 
             </div>
         </div>
