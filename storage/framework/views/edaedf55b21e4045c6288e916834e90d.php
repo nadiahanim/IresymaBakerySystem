@@ -20,6 +20,13 @@
 
 <div class="row">
     <div class="col-lg-12">
+        <!-- <div class="card"> -->
+            <!-- <div class="card-body"> -->
+                <input type="hidden" id="total_price" name="total_price" class="form-control" step="0.01">
+                <h4 id="display_price" class="card-title mb-4 text-end text-primary" style="font-size:25px;margin-top:10px;margin-right:10px;"></h4>
+        <!-- </div> -->
+    </div>
+    <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title mb-4">Order Your Own Custom Cake</h4>
@@ -38,7 +45,7 @@
                                         <div class="col-md-10">
                                                 <?php $__currentLoopData = $shape; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <div class="form-check form-radio-info mb-3">
-                                                        <input class="form-check-input" type="radio" name="cake_shape" id="cake_shape" value="<?php echo e($data->id); ?>" data-price="<?php echo e($data->price); ?>">
+                                                        <input class="form-check-input" type="radio" name="cake_shape" id="cake_shape" value="<?php echo e($data->id); ?>" data-price="<?php echo e($data->price); ?>" <?php echo e((($default_shape) == $data->id) ? 'checked' : ''); ?>>
                                                         <label class="form-check-label" for="cake_shape">
                                                             <?php echo e($data->name); ?>
 
@@ -56,7 +63,7 @@
                                         <div class="col-md-10">
                                                 <?php $__currentLoopData = $flavour; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <div class="form-check form-radio-primary mb-3">
-                                                        <input class="form-check-input" type="radio" name="cake_flavour" id="cake_flavour" value="<?php echo e($data->id); ?>" data-price="<?php echo e($data->price); ?>">
+                                                        <input class="form-check-input" type="radio" name="cake_flavour" id="cake_flavour" value="<?php echo e($data->id); ?>" data-price="<?php echo e($data->price); ?>" <?php echo e((($default_flavour) == $data->id) ? 'checked' : ''); ?>>
                                                         <label class="form-check-label" for="cake_flavour">
                                                             <?php echo e($data->name); ?>
 
@@ -77,7 +84,7 @@
                                         <div class="col-md-10">
                                                 <?php $__currentLoopData = $size; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <div class="form-check form-radio-primary mb-3">
-                                                        <input class="form-check-input" type="radio" name="cake_size" id="cake_size" value="<?php echo e($data->id); ?>" data-price="<?php echo e($data->price); ?>">
+                                                        <input class="form-check-input" type="radio" name="cake_size" id="cake_size" value="<?php echo e($data->id); ?>" data-price="<?php echo e($data->price); ?>" <?php echo e((($default_size) == $data->id) ? 'checked' : ''); ?>>
                                                         <label class="form-check-label" for="cake_size">
                                                             <?php echo e($data->name); ?>
 
@@ -95,7 +102,7 @@
                                         <div class="col-md-10">
                                                 <?php $__currentLoopData = $cream; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <div class="form-check form-radio-info mb-3">
-                                                        <input class="form-check-input" type="radio" name="cake_cream" id="cake_cream" value="<?php echo e($data->id); ?>" data-price="<?php echo e($data->price); ?>">
+                                                        <input class="form-check-input" type="radio" name="cake_cream" id="cake_cream" value="<?php echo e($data->id); ?>" data-price="<?php echo e($data->price); ?>" <?php echo e((($default_cream) == $data->id) ? 'checked' : ''); ?>>
                                                         <label class="form-check-label" for="cake_cream">
                                                             <?php echo e($data->name); ?>
 
@@ -116,7 +123,7 @@
                                         <div class="col-md-10">
                                                 <?php $__currentLoopData = $tier; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <div class="form-check form-radio-info mb-3">
-                                                        <input class="form-check-input" type="radio" name="cake_tier" id="cake_tier" value="<?php echo e($data->id); ?>" data-price="<?php echo e($data->price); ?>">
+                                                        <input class="form-check-input" type="radio" name="cake_tier" id="cake_tier" value="<?php echo e($data->id); ?>" data-price="<?php echo e($data->price); ?>" <?php echo e((($default_tier) == $data->id) ? 'checked' : ''); ?>>
                                                         <label class="form-check-label" for="cake_tier">
                                                             <?php echo e($data->name); ?>
 
@@ -143,7 +150,7 @@
                                         <div class="col-md-10">
                                                 <?php $__currentLoopData = $deco; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <div class="form-check form-radio-info mb-3">
-                                                        <input class="form-check-input" type="radio" name="cake_deco" id="cake_deco" value="<?php echo e($data->id); ?>" data-price="<?php echo e($data->price); ?>">
+                                                        <input class="form-check-input" type="radio" name="cake_deco" id="cake_deco" value="<?php echo e($data->id); ?>" data-price="<?php echo e($data->price); ?>" <?php echo e((($default_deco) == $data->id) ? 'checked' : ''); ?>>
                                                         <label class="form-check-label" for="cake_deco">
                                                             <?php echo e($data->name); ?>
 
@@ -285,36 +292,47 @@
 <?php $__env->startSection('script'); ?>
 
 <script>
-    var today = new Date();
-    var disableddates = $("#dates").data("disablethese");
+    $(function () {
 
-        mobiscroll.setOptions({
-        display: 'inline',
-        theme: 'ios', 
-        themeVariant: 'light'
+        $("#basic-example").steps({
+        headerTag: "h3",
+        bodyTag: "section",
+        transitionEffect: "slide"
+        });
+
+        var today = new Date();
+        var disableddates = $("#dates").data("disablethese");
+
+            mobiscroll.setOptions({
+            display: 'inline',
+            theme: 'ios', 
+            themeVariant: 'light'
+        });
+
+        var datepicker = mobiscroll.datepicker('#deli_date', {
+            controls: ['calendar'],
+            display: 'inline',
+            renderCalendarHeader: function () {
+            return '<div mbsc-calendar-prev class="custom-prev"></div>' +
+                '<div mbsc-calendar-nav class="custom-nav" style="width:90%; text-align: center;"></div>' +
+                '<div mbsc-calendar-next class="custom-next"></div>';
+            },
+            min: today, 
+            invalid: disableddates,
+            headerText: 'You selected {value}'
+        });
     });
 
-    var datepicker = mobiscroll.datepicker('#deli_date', {
-        controls: ['calendar'],
-        display: 'inline',
-        renderCalendarHeader: function () {
-        return '<div mbsc-calendar-prev class="custom-prev"></div>' +
-            '<div mbsc-calendar-nav class="custom-nav" style="width:90%; text-align: center;"></div>' +
-            '<div mbsc-calendar-next class="custom-next"></div>';
-        },
-        min: today, 
-        invalid: disableddates,
-        headerText: 'You selected {value}'
-    });
+    
 </script>
 
 <script src="<?php echo e(URL::asset('build/libs/select2/js/select2.min.js')); ?>"></script>
 <!-- form advanced init -->
-<!-- <script src="<?php echo e(URL::asset('/build/js/pages/form-advanced.init.js')); ?>"></script> -->
+<script src="<?php echo e(URL::asset('/build/js/pages/form-advanced.init.js')); ?>"></script>
 <!-- form wizard init -->
-<script src="<?php echo e(URL::asset('/build/js/pages/form-wizard.init.js')); ?>"></script>
+<!-- <script src="<?php echo e(URL::asset('/build/js/pages/form-wizard.init.js')); ?>"></script> -->
 <!-- jquery step -->
 <script src="<?php echo e(URL::asset('build/libs/jquery-steps/build/jquery.steps.min.js')); ?>"></script>
-
+<script src="<?php echo e(URL::asset('/build/js/pages/Order/orderForm.js')); ?>"></script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\user\Documents\GitHub\IresymaBakerySystem\resources\views/Order/create.blade.php ENDPATH**/ ?>

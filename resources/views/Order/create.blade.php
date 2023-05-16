@@ -20,6 +20,13 @@
 
 <div class="row">
     <div class="col-lg-12">
+        <!-- <div class="card"> -->
+            <!-- <div class="card-body"> -->
+                <input type="hidden" id="total_price" name="total_price" class="form-control" step="0.01">
+                <h4 id="display_price" class="card-title mb-4 text-end text-primary" style="font-size:25px;margin-top:10px;margin-right:10px;"></h4>
+        <!-- </div> -->
+    </div>
+    <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title mb-4">Order Your Own Custom Cake</h4>
@@ -37,7 +44,7 @@
                                         <div class="col-md-10">
                                                 @foreach($shape as $i => $data)
                                                     <div class="form-check form-radio-info mb-3">
-                                                        <input class="form-check-input" type="radio" name="cake_shape" id="cake_shape" value="{{ $data->id }}" data-price="{{$data->price}}">
+                                                        <input class="form-check-input" type="radio" name="cake_shape" id="cake_shape" value="{{ $data->id }}" data-price="{{$data->price}}" {{ (($default_shape) == $data->id) ? 'checked' : ''; }}>
                                                         <label class="form-check-label" for="cake_shape">
                                                             {{ $data->name }}
                                                         </label>
@@ -54,7 +61,7 @@
                                         <div class="col-md-10">
                                                 @foreach($flavour as $i => $data)
                                                     <div class="form-check form-radio-primary mb-3">
-                                                        <input class="form-check-input" type="radio" name="cake_flavour" id="cake_flavour" value="{{ $data->id }}" data-price="{{$data->price}}">
+                                                        <input class="form-check-input" type="radio" name="cake_flavour" id="cake_flavour" value="{{ $data->id }}" data-price="{{$data->price}}" {{ (($default_flavour) == $data->id) ? 'checked' : ''; }}>
                                                         <label class="form-check-label" for="cake_flavour">
                                                             {{ $data->name }}
                                                         </label>
@@ -74,7 +81,7 @@
                                         <div class="col-md-10">
                                                 @foreach($size as $i => $data)
                                                     <div class="form-check form-radio-primary mb-3">
-                                                        <input class="form-check-input" type="radio" name="cake_size" id="cake_size" value="{{ $data->id }}" data-price="{{$data->price}}">
+                                                        <input class="form-check-input" type="radio" name="cake_size" id="cake_size" value="{{ $data->id }}" data-price="{{$data->price}}" {{ (($default_size) == $data->id) ? 'checked' : ''; }}>
                                                         <label class="form-check-label" for="cake_size">
                                                             {{ $data->name }}
                                                         </label>
@@ -91,7 +98,7 @@
                                         <div class="col-md-10">
                                                 @foreach($cream as $i => $data)
                                                     <div class="form-check form-radio-info mb-3">
-                                                        <input class="form-check-input" type="radio" name="cake_cream" id="cake_cream" value="{{ $data->id }}" data-price="{{$data->price}}">
+                                                        <input class="form-check-input" type="radio" name="cake_cream" id="cake_cream" value="{{ $data->id }}" data-price="{{$data->price}}" {{ (($default_cream) == $data->id) ? 'checked' : ''; }}>
                                                         <label class="form-check-label" for="cake_cream">
                                                             {{ $data->name }}
                                                         </label>
@@ -111,7 +118,7 @@
                                         <div class="col-md-10">
                                                 @foreach($tier as $i => $data)
                                                     <div class="form-check form-radio-info mb-3">
-                                                        <input class="form-check-input" type="radio" name="cake_tier" id="cake_tier" value="{{ $data->id }}" data-price="{{$data->price}}">
+                                                        <input class="form-check-input" type="radio" name="cake_tier" id="cake_tier" value="{{ $data->id }}" data-price="{{$data->price}}" {{ (($default_tier) == $data->id) ? 'checked' : ''; }}>
                                                         <label class="form-check-label" for="cake_tier">
                                                             {{ $data->name }}
                                                         </label>
@@ -137,7 +144,7 @@
                                         <div class="col-md-10">
                                                 @foreach($deco as $i => $data)
                                                     <div class="form-check form-radio-info mb-3">
-                                                        <input class="form-check-input" type="radio" name="cake_deco" id="cake_deco" value="{{ $data->id }}" data-price="{{$data->price}}">
+                                                        <input class="form-check-input" type="radio" name="cake_deco" id="cake_deco" value="{{ $data->id }}" data-price="{{$data->price}}" {{ (($default_deco) == $data->id) ? 'checked' : ''; }}>
                                                         <label class="form-check-label" for="cake_deco">
                                                             {{ $data->name }}
                                                         </label>
@@ -278,35 +285,46 @@
 @section('script')
 
 <script>
-    var today = new Date();
-    var disableddates = $("#dates").data("disablethese");
+    $(function () {
 
-        mobiscroll.setOptions({
-        display: 'inline',
-        theme: 'ios', 
-        themeVariant: 'light'
+        $("#basic-example").steps({
+        headerTag: "h3",
+        bodyTag: "section",
+        transitionEffect: "slide"
+        });
+
+        var today = new Date();
+        var disableddates = $("#dates").data("disablethese");
+
+            mobiscroll.setOptions({
+            display: 'inline',
+            theme: 'ios', 
+            themeVariant: 'light'
+        });
+
+        var datepicker = mobiscroll.datepicker('#deli_date', {
+            controls: ['calendar'],
+            display: 'inline',
+            renderCalendarHeader: function () {
+            return '<div mbsc-calendar-prev class="custom-prev"></div>' +
+                '<div mbsc-calendar-nav class="custom-nav" style="width:90%; text-align: center;"></div>' +
+                '<div mbsc-calendar-next class="custom-next"></div>';
+            },
+            min: today, 
+            invalid: disableddates,
+            headerText: 'You selected {value}'
+        });
     });
 
-    var datepicker = mobiscroll.datepicker('#deli_date', {
-        controls: ['calendar'],
-        display: 'inline',
-        renderCalendarHeader: function () {
-        return '<div mbsc-calendar-prev class="custom-prev"></div>' +
-            '<div mbsc-calendar-nav class="custom-nav" style="width:90%; text-align: center;"></div>' +
-            '<div mbsc-calendar-next class="custom-next"></div>';
-        },
-        min: today, 
-        invalid: disableddates,
-        headerText: 'You selected {value}'
-    });
+    
 </script>
 
 <script src="{{ URL::asset('build/libs/select2/js/select2.min.js') }}"></script>
 <!-- form advanced init -->
-<!-- <script src="{{ URL::asset('/build/js/pages/form-advanced.init.js') }}"></script> -->
+<script src="{{ URL::asset('/build/js/pages/form-advanced.init.js') }}"></script>
 <!-- form wizard init -->
-<script src="{{ URL::asset('/build/js/pages/form-wizard.init.js') }}"></script>
+<!-- <script src="{{ URL::asset('/build/js/pages/form-wizard.init.js') }}"></script> -->
 <!-- jquery step -->
 <script src="{{ URL::asset('build/libs/jquery-steps/build/jquery.steps.min.js') }}"></script>
-
+<script src="{{ URL::asset('/build/js/pages/Order/orderForm.js') }}"></script>
 @endsection
