@@ -21,8 +21,15 @@ class OrderController extends Controller
         
     }
 
-    public function create()
+    public function create(Request $request)
     {
+        $default_shape = $request->default_shape;
+        $default_flavour = $request->default_flavour;
+        $default_cream = $request->default_cream;
+        $default_size = $request->default_size;
+        $default_tier = $request->default_tier;
+        $default_deco = $request->default_deco;
+
         $categories = Category::where([['status_data',1]])->get();
 
         $shape = Service::where([['category_id',1], ['status_data',1]])->get();
@@ -51,6 +58,12 @@ class OrderController extends Controller
 
         return view('Order.create', 
         [
+            'default_shape' => $default_shape,
+            'default_flavour' => $default_flavour,
+            'default_cream' => $default_cream,
+            'default_size' => $default_size,
+            'default_tier' => $default_tier,
+            'default_deco' => $default_deco,
             'categories' => $categories,
             'shape' => $shape,
             'flavour' => $flavour,

@@ -99,7 +99,14 @@
             <?php else: ?>
             <div class="mb-3 row">
                 <div class="col-sm-12">
-                    <a href="<?php echo e(route('order.create')); ?>" class="btn btn-primary float-end">Order Now</a>
+                    <a href="<?php echo e(route('order.create', [
+                        'default_shape'=>$cake->shape_id,
+                        'default_flavour'=>$cake->flavour_id,
+                        'default_cream'=>$cake->cream_id,
+                        'default_size'=>$cake->size_id,
+                        'default_tier'=>$cake->tier_id,
+                        'default_deco'=>$cake->deco_id
+                        ])); ?>" class="btn btn-primary float-end">Order Now</a>
                     <a href="<?php echo e(route('cake.index')); ?>" class="btn btn-secondary float-end me-2"><?php echo app('translator')->get('button.back'); ?></a>
                 </div>
             </div>
