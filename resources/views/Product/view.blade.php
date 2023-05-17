@@ -68,6 +68,7 @@
                                 <b>{{ $product->quantity }}</b>
                             @endif
                         </h5>
+                        <p class="my-0"><span class="text-muted me-2"></span>last updated: {{ date('d/m/Y h:i a', strtotime($product->updated_on)) }}</p>
                     </div>
                 </div>
             </div>
