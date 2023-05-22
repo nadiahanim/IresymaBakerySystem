@@ -6,6 +6,7 @@ var tier_price = 0;
 var deco_price = 0;
 var deli_price = 0;
 var price = 0;
+var deposit = 0;
 
 $(document).ready(function () {
 
@@ -21,10 +22,7 @@ $(document).ready(function () {
 
     deco_price = $('input[id=cake_deco]:checked').data('price');
 
-    deli_price = $('#order_postcode').find('option:selected').data('price');
-
     calcEstimatedPrice();
-
 });
 
 $(document).on("change", "#cake_shape", function(){
@@ -75,9 +73,9 @@ $(document).on("change", "#cake_deco", function(){
 
 });
 
-$(document).on("change", "#order_postcode", function(){
+$(document).on("change", "#deli_postcode", function(){
 
-    deli_price = $('#order_postcode').find('option:selected').data('price');
+    deli_price = $('#deli_postcode').find('option:selected').data('price');
 
     calcEstimatedPrice();
 
@@ -87,6 +85,9 @@ function calcEstimatedPrice() {
 
 price = shape_price + flavour_price + cream_price + (size_price*tier_price) + deco_price + deli_price;
 
+deposit = price/2;
+
+// total price and display total price
 total_price = document.getElementById('total_price');
 
 total_price.value = price;
@@ -94,5 +95,14 @@ total_price.value = price;
 display_price = document.getElementById('display_price');
 
 display_price.innerHTML = "Total Price : RM <b>"+ price +"</b>";
+
+// deposit price and display deposit price
+deposit_price = document.getElementById('deposit_price');
+
+deposit_price.value = deposit;
+
+display_deposit = document.getElementById('display_deposit');
+
+display_deposit.innerHTML = "Deposit Price : RM <b>"+ deposit +"</b>";
 
 }

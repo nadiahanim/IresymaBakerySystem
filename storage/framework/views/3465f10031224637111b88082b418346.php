@@ -1,21 +1,21 @@
-@extends('layouts.master')
 
-@section('title')
-@lang('Order List')
-@endsection
 
-@section('css')
+<?php $__env->startSection('title'); ?>
+<?php echo app('translator')->get('Order List'); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('css'); ?>
     <!-- dragula css -->
-    <link href="{{ URL::asset('/build/libs/dragula/dragula.min.css') }}" rel="stylesheet" type="text/css" />
-@endsection
+    <link href="<?php echo e(URL::asset('/build/libs/dragula/dragula.min.css')); ?>" rel="stylesheet" type="text/css" />
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
-@component('components.alert')@endcomponent
+<?php $__env->startComponent('components.alert'); ?><?php echo $__env->renderComponent(); ?>
 
-@component('components.breadcrumb')
-@slot('title') Order List @endslot
-@endcomponent
+<?php $__env->startComponent('components.breadcrumb'); ?>
+<?php $__env->slot('title'); ?> Order List <?php $__env->endSlot(); ?>
+<?php echo $__env->renderComponent(); ?>
 
 <div class="row">
         <div class="col-lg-4">
@@ -103,7 +103,7 @@
                                             <a href="#">
                                                 <div class="border rounded avatar-sm">
                                                     <span class="avatar-title bg-transparent">
-                                                        <img src="{{ URL::asset('/build/images/companies/img-1.png') }}"
+                                                        <img src="<?php echo e(URL::asset('/build/images/companies/img-1.png')); ?>"
                                                             alt="" class="avatar-xs">
                                                     </span>
                                                 </div>
@@ -113,7 +113,7 @@
                                             <a href="#">
                                                 <div class="border rounded avatar-sm">
                                                     <span class="avatar-title bg-transparent">
-                                                        <img src="{{ URL::asset('/build/images/companies/img-2.png') }}"
+                                                        <img src="<?php echo e(URL::asset('/build/images/companies/img-2.png')); ?>"
                                                             alt="" class="avatar-xs">
                                                     </span>
                                                 </div>
@@ -123,7 +123,7 @@
                                             <a href="#">
                                                 <div class="border rounded avatar-sm">
                                                     <span class="avatar-title bg-transparent">
-                                                        <img src="{{ URL::asset('/build/images/companies/img-3.png') }}"
+                                                        <img src="<?php echo e(URL::asset('/build/images/companies/img-3.png')); ?>"
                                                             alt="" class="avatar-xs">
                                                     </span>
                                                 </div>
@@ -134,13 +134,13 @@
                                     <div class="avatar-group float-start task-assigne">
                                         <div class="avatar-group-item">
                                             <a href="javascript: void(0);" class="d-inline-block" value="member-7">
-                                                <img src="{{ URL::asset('/build/images/users/avatar-7.jpg') }}"
+                                                <img src="<?php echo e(URL::asset('/build/images/users/avatar-7.jpg')); ?>"
                                                     alt="" class="rounded-circle avatar-xs">
                                             </a>
                                         </div>
                                         <div class="avatar-group-item">
                                             <a href="javascript: void(0);" class="d-inline-block" value="member-8">
-                                                <img src="{{ URL::asset('/build/images/users/avatar-8.jpg') }}"
+                                                <img src="<?php echo e(URL::asset('/build/images/users/avatar-8.jpg')); ?>"
                                                     alt="" class="rounded-circle avatar-xs">
                                             </a>
                                         </div>
@@ -196,19 +196,19 @@
                                     <div class="avatar-group float-start task-assigne">
                                         <div class="avatar-group-item">
                                             <a href="javascript: void(0);" class="d-inline-block" value="member-1">
-                                                <img src="{{ URL::asset('/build/images/users/avatar-1.jpg') }}"
+                                                <img src="<?php echo e(URL::asset('/build/images/users/avatar-1.jpg')); ?>"
                                                     alt="" class="rounded-circle avatar-xs">
                                             </a>
                                         </div>
                                         <div class="avatar-group-item">
                                             <a href="javascript: void(0);" class="d-inline-block" value="member-2">
-                                                <img src="{{ URL::asset('/build/images/users/avatar-2.jpg') }}"
+                                                <img src="<?php echo e(URL::asset('/build/images/users/avatar-2.jpg')); ?>"
                                                     alt="" class="rounded-circle avatar-xs">
                                             </a>
                                         </div>
                                         <div class="avatar-group-item">
                                             <a href="javascript: void(0);" class="d-inline-block" value="member-3">
-                                                <img src="{{ URL::asset('/build/images/users/avatar-3.jpg') }}"
+                                                <img src="<?php echo e(URL::asset('/build/images/users/avatar-3.jpg')); ?>"
                                                     alt="" class="rounded-circle avatar-xs">
                                             </a>
                                         </div>
@@ -232,15 +232,16 @@
     </div>
     <!-- end row -->
 
-@endsection
-@section('script')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('script'); ?>
     <!-- dragula plugins -->
-    <script src="{{ URL::asset('build/libs/dragula/dragula.min.js') }}"></script>
+    <script src="<?php echo e(URL::asset('build/libs/dragula/dragula.min.js')); ?>"></script>
 
     <!-- jquery-validation -->
-    <script src="{{ URL::asset('build/libs/jquery-validation/jquery.validate.min.js') }}"></script>
+    <script src="<?php echo e(URL::asset('build/libs/jquery-validation/jquery.validate.min.js')); ?>"></script>
 
-    <script src="{{ URL::asset('build/js/pages/task-kanban.init.js') }}"></script>
+    <script src="<?php echo e(URL::asset('build/js/pages/task-kanban.init.js')); ?>"></script>
 
-    <script src="{{ URL::asset('build/js/pages/task-form.init.js') }}"></script>
-@endsection
+    <script src="<?php echo e(URL::asset('build/js/pages/task-form.init.js')); ?>"></script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\user\Documents\GitHub\IresymaBakerySystem\resources\views/Order/index.blade.php ENDPATH**/ ?>
