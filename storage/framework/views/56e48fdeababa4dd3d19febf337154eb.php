@@ -203,7 +203,7 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle arrow-none" href="" id="topnav-dashboard" role="button">
+                            <a class="nav-link dropdown-toggle arrow-none" href="<?php echo e(route('order.index')); ?>" id="topnav-dashboard" role="button">
                                 <i class="bx bx-receipt me-2"></i><span key="t-dashboards">Orders</span>
                             </a>
                         </li>

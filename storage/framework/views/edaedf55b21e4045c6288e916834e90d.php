@@ -22,17 +22,20 @@
     <div class="col-lg-12">
         <!-- <div class="card"> -->
             <!-- <div class="card-body"> -->
-                <input type="hidden" id="total_price" name="total_price" class="form-control" step="0.01">
                 <h4 id="display_price" class="card-title mb-4 text-end text-primary" style="font-size:25px;margin-top:10px;margin-right:10px;"></h4>
+
+                <h4 id="display_deposit" class="card-title mb-4 text-end text-info" style="font-size:15px;margin-top:10px;margin-right:10px;"></h4>
         <!-- </div> -->
     </div>
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title mb-4">Order Your Own Custom Cake</h4>
-                <form id="form" data-parsley-validate class="form-horizontal custom-validation" method="POST" action="" enctype="multipart/form-data">
+                <form id="form" data-parsley-validate class="form-horizontal custom-validation" method="POST" action="<?php echo e(route('order.save')); ?>" enctype="multipart/form-data">
                 <?php echo e(csrf_field()); ?>
 
+                <input type="hidden" id="total_price" name="total_price" class="form-control" step="0.01">
+                <input type="hidden" id="deposit_price" name="deposit_price" class="form-control" step="0.01">
                 <div id="basic-example">
                     <!-- Cake Details -->
                     <h3>Cake Details</h3>
@@ -166,7 +169,7 @@
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <label for="basicpill-vatno-input">Sample Design</label>
-                                        <input type="file" class="form-control" id="order_image" multiple>
+                                        <input type="file" class="form-control" id="sample_image" name="sample_image">
                                     </div>
                                 </div>
                             </div>
@@ -175,7 +178,7 @@
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <label for="order_message">Special Message</label>
-                                        <input type="text" class="form-control" id="order_message" name="order_message">
+                                        <input type="text" class="form-control" id="special_message" name="special_message">
                                     </div>
                                 </div>
                             </div>
@@ -195,7 +198,7 @@
                                             <!-- <input type="text" class="form-control" id="deli_address2" name="deli_address2"> -->
                                             <div class="mbsc-grid">
                                                 <div class="mbsc-row">
-                                                    <div class="mbsc-col-sm-10 mbsc-col-md-5" style="border-style:dashed; border-radius:25px; border-color:#54B4D3;">
+                                                    <div class="mbsc-col-sm-10 mbsc-col-md-8" style="border-style:dashed; border-radius:25px; border-color:#54B4D3;">
                                                         <div class="mbsc-form-group">
                                                             <!-- <div id="demo-counter"></div> -->
                                                             <input id="deli_date" type="hidden" name="deli_date"></input>
@@ -226,7 +229,7 @@
                                         <div class="mb-3">
                                             <label for="cake_shape">Postcode</label>
                                             <!-- <div class="col-md-10"> -->
-                                                <select class="form-select" id="order_postcode" name="order_postcode"
+                                                <select class="form-select" id="deli_postcode" name="deli_postcode"
                                                 required data-parsley-required-message="* <?php echo e(Config::get('validationMessage.order.postcode.required')); ?>" data-parsley-trigger="change"
                                                 data-parsley-errors-container="#errorContainer1">
                                                     <option value="" data-price="0">-- Select --</option>
@@ -247,12 +250,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-6">
-                                        <div class="mb-3">
-                                            <label for="basicpill-card-verification-input">Telephone Number</label>
-                                            <input type="text" class="form-control" id="basicpill-card-verification-input" placeholder="Credit Verification Number">
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                                 
                             <!-- </form> -->
@@ -321,6 +319,7 @@
             invalid: disableddates,
             headerText: 'You selected {value}'
         });
+
     });
 
     
