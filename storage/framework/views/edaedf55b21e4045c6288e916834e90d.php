@@ -181,6 +181,12 @@
                                         <input type="text" class="form-control" id="special_message" name="special_message">
                                     </div>
                                 </div>
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label for="note">Important Note</label>
+                                        <input type="text" class="form-control" id="note" name="note" value="Ref: <?php echo e($cake_name); ?>">
+                                    </div>
+                                </div>
                             </div>
                         <!-- </form> -->
                     </section>

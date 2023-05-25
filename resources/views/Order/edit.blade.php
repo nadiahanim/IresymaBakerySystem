@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-@lang('View Order')
+@lang('Update Order')
 @endsection
 
 @section('css')
@@ -13,12 +13,16 @@
 @component('components.alert')@endcomponent
 
 @component('components.breadcrumb')
-@slot('title') View Order @endslot
+@slot('title') Update Order @endslot
 @endcomponent
 
 <div class="row">
     <div class="card">
         <div class="card-body">
+
+            <form id="form" data-parsley-validate class="form-horizontal custom-validation" method="POST" action="{{ route('order.update') }}" enctype="multipart/form-data">
+                {{ csrf_field() }} 
+                @method('PATCH')
 
                 <h4 class="mt-2 mb-3">Order #{{ $order->id }}</h4>
                 <p class="my-1"><span class="text-muted me-2"></span>Ordered on: {{date('d/m/Y', strtotime($order->ordered_on))}}</p>
@@ -78,11 +82,6 @@
                                     <td>{{ $order_detail->cakeDeco->name }}</td>
                                     <td>{{ $order_detail->cakeDeco->price }}</td>
                                 </tr>
-                                <tr>
-                                    <th>Delivery Charge</th>
-                                    <td>{{ $order->postcode->name }}</td>
-                                    <td>{{ $order->postcode->price }}</td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -124,40 +123,29 @@
 
                 <div class="mb-2 row">
                     <label for="order_status" class="col-md-2 col-form-label control-label">Order Status</label>
-                    <div class="col-md-8 pt-1">
-                        @if($order->order_status == 1)
-                        <span class="badge rounded-pill badge-soft-info font-size-16"
-                            id="task-status">New</span>
-                            
-                        @elseif($order->order_status == 2)
-                        <span class="badge rounded-pill badge-soft-warning font-size-16"
-                            id="task-status">In Progress</span>
-
-                        @elseif($order->order_status == 3)
-                        <span class="badge rounded-pill badge-soft-success font-size-16"
-                            id="task-status">Ready</span>
-                            
-                        @elseif($order->order_status == 4)
-                        <span class="badge rounded-pill badge-soft-success font-size-16"
-                            id="task-status">Completed</span>
-
-                        @else
-                        <span class="badge rounded-pill badge-soft-danger font-size-16"
-                            id="task-status">Cancelled</span>
-
-                        @endif
+                    <div class="col-md-8">
+                        <select class="form-select select2" id="order_status" name="order_status"
+                        required data-parsley-required-message="* {{  Config::get('validationMessage.order.status.required') }}" data-parsley-trigger="change"
+                        data-parsley-errors-container="#errorContainer">
+                            <option value="">-- Select --</option>
+                            <option value="1" {{ (old('order_status', $order->order_status) == 1) ? 'selected' : ''; }}>New</option>    
+                            <option value="2" {{ (old('order_status', $order->order_status) == 2) ? 'selected' : ''; }}>In Progress</option> 
+                            <option value="3" {{ (old('order_status', $order->order_status) == 3) ? 'selected' : ''; }}>Ready</option>  
+                            <option value="4" {{ (old('order_status', $order->order_status) == 4) ? 'selected' : ''; }}>Completed</option>
+                            <option value="5" {{ (old('order_status', $order->order_status) == 5) ? 'selected' : ''; }}>Cancelled</option>
+                        </select>
+                        <div id="errorContainer"></div>
                     </div>
                 </div>
-
-                <h4 id="display_price" class="card-title mb-4 text-end text-primary" style="font-size:25px;margin-top:10px;margin-right:10px;">Total Price : RM{{ $order->total_price }}</h4>
-
-                <h4 id="display_deposit" class="card-title mb-4 text-end text-info" style="font-size:15px;margin-top:10px;margin-right:10px;">Deposit Price : RM{{ $order->deposit_price }}</h4>
 
                 <div class="mb-3 row">
                     <div class="col-sm-12">
-                        <a href="{{ route('order.custIndex') }}" class="btn btn-secondary float-end me-2">@lang('button.back')</a>
+                        <button type="submit" class="btn btn-primary float-end swal-update">@lang('button.save')</button>
+                        <a href="{{ route('order.index') }}" class="btn btn-secondary float-end me-2">@lang('button.back')</a>
                     </div>
                 </div>
+
+            </form>
 
         </div>
     </div>

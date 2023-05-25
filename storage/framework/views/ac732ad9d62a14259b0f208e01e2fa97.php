@@ -1,27 +1,27 @@
-@extends('layouts.master')
 
-@section('title')
-@lang('My Orders')
-@endsection
 
-@section('css')
+<?php $__env->startSection('title'); ?>
+<?php echo app('translator')->get('My Orders'); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('css'); ?>
     <!-- dragula css -->
-    <link href="{{ URL::asset('/build/libs/dragula/dragula.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="<?php echo e(URL::asset('/build/libs/dragula/dragula.min.css')); ?>" rel="stylesheet" type="text/css" />
     <!-- DataTables -->
-    <link href="{{ URL::asset('build/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet"
+    <link href="<?php echo e(URL::asset('build/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css')); ?>" rel="stylesheet"
         type="text/css" />
     <!-- Responsive datatable examples -->
-    <link href="{{ URL::asset('build/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}"
+    <link href="<?php echo e(URL::asset('build/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')); ?>"
         rel="stylesheet" type="text/css" />
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
-@component('components.alert')@endcomponent
+<?php $__env->startComponent('components.alert'); ?><?php echo $__env->renderComponent(); ?>
 
-@component('components.breadcrumb')
-@slot('title') My Orders @endslot
-@endcomponent
+<?php $__env->startComponent('components.breadcrumb'); ?>
+<?php $__env->slot('title'); ?> My Orders <?php $__env->endSlot(); ?>
+<?php echo $__env->renderComponent(); ?>
 
 <div class="row">
     <div class="card">
@@ -103,20 +103,20 @@
                                         </tr>
                                     </thead>
                                     <tbody class="field_wrapper">
-                                        @foreach($new_orders as $i => $data)
+                                        <?php $__currentLoopData = $new_orders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <tr>
-                                            <th class="text-center">{{ $loop->iteration }}</th>
-                                            <td>Order #{{ $data->id }}</td> 
-                                            <td class="text-center">{{ $data->total_price }}</td>
-                                            <td class="text-center">{{date('d/m/Y', strtotime($data->deli_date))}}</td>                                           
-                                            <td class="text-center">{{date('d/m/Y h:i a', strtotime($data->updated_on))}}</td>
+                                            <th class="text-center"><?php echo e($loop->iteration); ?></th>
+                                            <td>Order #<?php echo e($data->id); ?></td> 
+                                            <td class="text-center"><?php echo e($data->total_price); ?></td>
+                                            <td class="text-center"><?php echo e(date('d/m/Y', strtotime($data->deli_date))); ?></td>                                           
+                                            <td class="text-center"><?php echo e(date('d/m/Y h:i a', strtotime($data->updated_on))); ?></td>
                                             <td class="text-center">
                                                 <div class="btn-group" role="group">
-                                                    <a href="{{ route('order.view', ['order_id'=>$data->id]) }}" class="btn btn-soft-info btn-sm"><i class="mdi mdi-magnify mdi-18px"></i></a>                                                   
+                                                    <a href="<?php echo e(route('order.view', ['order_id'=>$data->id])); ?>" class="btn btn-soft-info btn-sm"><i class="mdi mdi-magnify mdi-18px"></i></a>                                                   
                                                 </div>
                                             </td> 
                                         </tr>
-                                        @endforeach
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -164,20 +164,20 @@
                                         </tr>
                                     </thead>
                                     <tbody class="field_wrapper">
-                                        @foreach($in_progress_orders as $i => $data)
+                                        <?php $__currentLoopData = $in_progress_orders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <tr>
-                                            <th class="text-center">{{ $loop->iteration }}</th>
-                                            <td>Order #{{ $data->id }}</td> 
-                                            <td class="text-center">{{ $data->total_price }}</td>
-                                            <td class="text-center">{{date('d/m/Y', strtotime($data->deli_date))}}</td>                                           
-                                            <td class="text-center">{{date('d/m/Y h:i a', strtotime($data->updated_on))}}</td>
+                                            <th class="text-center"><?php echo e($loop->iteration); ?></th>
+                                            <td>Order #<?php echo e($data->id); ?></td> 
+                                            <td class="text-center"><?php echo e($data->total_price); ?></td>
+                                            <td class="text-center"><?php echo e(date('d/m/Y', strtotime($data->deli_date))); ?></td>                                           
+                                            <td class="text-center"><?php echo e(date('d/m/Y h:i a', strtotime($data->updated_on))); ?></td>
                                             <td class="text-center">
                                                 <div class="btn-group" role="group">
-                                                    <a href="{{ route('order.view', ['order_id'=>$data->id]) }}" class="btn btn-soft-info btn-sm"><i class="mdi mdi-magnify mdi-18px"></i></a>                                                   
+                                                    <a href="<?php echo e(route('order.view', ['order_id'=>$data->id])); ?>" class="btn btn-soft-info btn-sm"><i class="mdi mdi-magnify mdi-18px"></i></a>                                                   
                                                 </div>
                                             </td> 
                                         </tr>
-                                        @endforeach
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -225,20 +225,20 @@
                                         </tr>
                                     </thead>
                                     <tbody class="field_wrapper">
-                                        @foreach($ready_orders as $i => $data)
+                                        <?php $__currentLoopData = $ready_orders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <tr>
-                                            <th class="text-center">{{ $loop->iteration }}</th>
-                                            <td>Order #{{ $data->id }}</td> 
-                                            <td class="text-center">{{ $data->total_price }}</td>
-                                            <td class="text-center">{{date('d/m/Y', strtotime($data->deli_date))}}</td>                                           
-                                            <td class="text-center">{{date('d/m/Y h:i a', strtotime($data->updated_on))}}</td>
+                                            <th class="text-center"><?php echo e($loop->iteration); ?></th>
+                                            <td>Order #<?php echo e($data->id); ?></td> 
+                                            <td class="text-center"><?php echo e($data->total_price); ?></td>
+                                            <td class="text-center"><?php echo e(date('d/m/Y', strtotime($data->deli_date))); ?></td>                                           
+                                            <td class="text-center"><?php echo e(date('d/m/Y h:i a', strtotime($data->updated_on))); ?></td>
                                             <td class="text-center">
                                                 <div class="btn-group" role="group">
-                                                    <a href="{{ route('order.view', ['order_id'=>$data->id]) }}" class="btn btn-soft-info btn-sm"><i class="mdi mdi-magnify mdi-18px"></i></a>                                                   
+                                                    <a href="<?php echo e(route('order.view', ['order_id'=>$data->id])); ?>" class="btn btn-soft-info btn-sm"><i class="mdi mdi-magnify mdi-18px"></i></a>                                                   
                                                 </div>
                                             </td> 
                                         </tr>
-                                        @endforeach
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -286,20 +286,20 @@
                                         </tr>
                                     </thead>
                                     <tbody class="field_wrapper">
-                                        @foreach($completed_orders as $i => $data)
+                                        <?php $__currentLoopData = $completed_orders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <tr>
-                                            <th class="text-center">{{ $loop->iteration }}</th>
-                                            <td>Order #{{ $data->id }}</td> 
-                                            <td class="text-center">{{ $data->total_price }}</td>
-                                            <td class="text-center">{{date('d/m/Y', strtotime($data->deli_date))}}</td>                                           
-                                            <td class="text-center">{{date('d/m/Y h:i a', strtotime($data->updated_on))}}</td>
+                                            <th class="text-center"><?php echo e($loop->iteration); ?></th>
+                                            <td>Order #<?php echo e($data->id); ?></td> 
+                                            <td class="text-center"><?php echo e($data->total_price); ?></td>
+                                            <td class="text-center"><?php echo e(date('d/m/Y', strtotime($data->deli_date))); ?></td>                                           
+                                            <td class="text-center"><?php echo e(date('d/m/Y h:i a', strtotime($data->updated_on))); ?></td>
                                             <td class="text-center">
                                                 <div class="btn-group" role="group">
-                                                    <a href="{{ route('order.view', ['order_id'=>$data->id]) }}" class="btn btn-soft-info btn-sm"><i class="mdi mdi-magnify mdi-18px"></i></a>                                                   
+                                                    <a href="<?php echo e(route('order.view', ['order_id'=>$data->id])); ?>" class="btn btn-soft-info btn-sm"><i class="mdi mdi-magnify mdi-18px"></i></a>                                                   
                                                 </div>
                                             </td> 
                                         </tr>
-                                        @endforeach
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -347,20 +347,20 @@
                                         </tr>
                                     </thead>
                                     <tbody class="field_wrapper">
-                                        @foreach($cancelled_orders as $i => $data)
+                                        <?php $__currentLoopData = $cancelled_orders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <tr>
-                                            <th class="text-center">{{ $loop->iteration }}</th>
-                                            <td>Order #{{ $data->id }}</td> 
-                                            <td class="text-center">{{ $data->total_price }}</td>
-                                            <td class="text-center">{{date('d/m/Y', strtotime($data->deli_date))}}</td>                                           
-                                            <td class="text-center">{{date('d/m/Y h:i a', strtotime($data->updated_on))}}</td>
+                                            <th class="text-center"><?php echo e($loop->iteration); ?></th>
+                                            <td>Order #<?php echo e($data->id); ?></td> 
+                                            <td class="text-center"><?php echo e($data->total_price); ?></td>
+                                            <td class="text-center"><?php echo e(date('d/m/Y', strtotime($data->deli_date))); ?></td>                                           
+                                            <td class="text-center"><?php echo e(date('d/m/Y h:i a', strtotime($data->updated_on))); ?></td>
                                             <td class="text-center">
                                                 <div class="btn-group" role="group">
-                                                    <a href="{{ route('order.view', ['order_id'=>$data->id]) }}" class="btn btn-soft-info btn-sm"><i class="mdi mdi-magnify mdi-18px"></i></a>                                                   
+                                                    <a href="<?php echo e(route('order.view', ['order_id'=>$data->id])); ?>" class="btn btn-soft-info btn-sm"><i class="mdi mdi-magnify mdi-18px"></i></a>                                                   
                                                 </div>
                                             </td> 
                                         </tr>
-                                        @endforeach
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -373,20 +373,21 @@
     </div>
 </div>
 
-@endsection
-@section('script')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('script'); ?>
     <!-- dragula plugins -->
-    <script src="{{ URL::asset('build/libs/dragula/dragula.min.js') }}"></script>
+    <script src="<?php echo e(URL::asset('build/libs/dragula/dragula.min.js')); ?>"></script>
     <!-- jquery-validation -->
-    <script src="{{ URL::asset('build/libs/jquery-validation/jquery.validate.min.js') }}"></script>
-    <script src="{{ URL::asset('build/js/pages/task-kanban.init.js') }}"></script>
-    <script src="{{ URL::asset('build/js/pages/task-form.init.js') }}"></script>
+    <script src="<?php echo e(URL::asset('build/libs/jquery-validation/jquery.validate.min.js')); ?>"></script>
+    <script src="<?php echo e(URL::asset('build/js/pages/task-kanban.init.js')); ?>"></script>
+    <script src="<?php echo e(URL::asset('build/js/pages/task-form.init.js')); ?>"></script>
     <!-- Required datatable js -->
-    <script src="{{ URL::asset('build/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ URL::asset('build/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="<?php echo e(URL::asset('build/libs/datatables.net/js/jquery.dataTables.min.js')); ?>"></script>
+    <script src="<?php echo e(URL::asset('build/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')); ?>"></script>
      <!-- Responsive examples -->
-     <script src="{{ URL::asset('build/libs/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ URL::asset('build/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}"></script>
+     <script src="<?php echo e(URL::asset('build/libs/datatables.net-responsive/js/dataTables.responsive.min.js')); ?>"></script>
+    <script src="<?php echo e(URL::asset('build/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')); ?>"></script>
     <!-- Datatable init js -->
-    <script src="{{ URL::asset('/build/js/pages/datatables.init.js') }}"></script>
-@endsection
+    <script src="<?php echo e(URL::asset('/build/js/pages/datatables.init.js')); ?>"></script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\user\Documents\GitHub\IresymaBakerySystem\resources\views/Order/custIndex.blade.php ENDPATH**/ ?>

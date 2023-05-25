@@ -60,13 +60,16 @@
                 <div class="mb-2 row">
                     <label for="product_type" class="col-md-2 col-form-label control-label">Product Type</label>
                     <div class="col-md-10">
-                        <select class="form-select select2" id="product_type" name="product_type">
+                        <select class="form-select select2" id="product_type" name="product_type"
+                        required data-parsley-required-message="* {{  Config::get('validationMessage.product.type.required') }}" data-parsley-trigger="change"
+                        data-parsley-errors-container="#errorContainer">
                             <option value="">-- Select --</option>
                             <option value="1">Bread</option>    
                             <option value="2">Cakes</option> 
                             <option value="3">Cookies</option>  
                             <option value="4">Pastries</option>
                         </select>
+                        <div id="errorContainer"></div>
                     </div>
                 </div>
 

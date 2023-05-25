@@ -19,6 +19,8 @@ class OrderController extends Controller
 
     public function index()
     {
+        $all_orders = Order::where([['status_data',1]])->orderBy('updated_on', 'DESC')->get();
+
         $new_orders = Order::where([['order_status',1], ['status_data',1]])->get();
 
         $in_progress_orders = Order::where([['order_status',2], ['status_data',1]])->get();
@@ -27,14 +29,40 @@ class OrderController extends Controller
 
         return view('Order.index', 
         [
+            'all_orders' => $all_orders,
             'new_orders' => $new_orders,
             'in_progress_orders' => $in_progress_orders,
             'completed_orders' => $completed_orders,
         ]);
     }
 
+    public function custIndex()
+    {
+        $user_id = auth()->user()->id;
+
+        $new_orders = Order::where([['cust_id',$user_id], ['order_status',1], ['status_data',1]])->get();
+
+        $in_progress_orders = Order::where([['cust_id',$user_id], ['order_status',2], ['status_data',1]])->get();
+
+        $ready_orders = Order::where([['cust_id',$user_id], ['order_status',3], ['status_data',1]])->get();
+
+        $completed_orders = Order::where([['cust_id',$user_id], ['order_status',4], ['status_data',1]])->get();
+
+        $cancelled_orders = Order::where([['cust_id',$user_id], ['order_status',5], ['status_data',1]])->get();
+
+        return view('Order.custIndex', 
+        [
+            'new_orders' => $new_orders,
+            'in_progress_orders' => $in_progress_orders,
+            'ready_orders' => $ready_orders,
+            'completed_orders' => $completed_orders,
+            'cancelled_orders' => $cancelled_orders,
+        ]);
+    }
+
     public function create(Request $request)
     {
+        $cake_name = $request->cake_name;
         $default_shape = $request->default_shape;
         $default_flavour = $request->default_flavour;
         $default_cream = $request->default_cream;
@@ -70,6 +98,7 @@ class OrderController extends Controller
 
         return view('Order.create', 
         [
+            'cake_name' => $cake_name,
             'default_shape' => $default_shape,
             'default_flavour' => $default_flavour,
             'default_cream' => $default_cream,
@@ -161,24 +190,60 @@ class OrderController extends Controller
 
     }
 
-    public function view(Request $request)
-    {
-        
-    }
-
     public function edit(Request $request)
     {
-        
+        $order_id = $request->order_id;
+
+        $order = Order::where([['id',$order_id]])->first();
+
+        $order_detail = OrderDetail::where([['order_id',$order_id]])->first();
+
+        return view('Order.edit', 
+        [
+            'order' => $order,
+            'order_detail' => $order_detail,
+        ]);
     }
 
     public function update(Request $request)
     {
-        
+        $order_id = $request->order_id;
+        $order_status = $request->order_status;
+
+        $order = Order::where([['id',$order_id]])->first();
+
+        $order->order_status    = $order_status;
+        $order->updated_on      = date('Y-m-d H:i:s');
+
+        $saved = $order->save();
+
+        if($saved)
+        {
+            return redirect()->route('order.index')->with([
+                'success' => 'Order status successfully updated!',
+            ]);
+        }
+        else 
+        {
+            return redirect()->route('order.edit', ['order_id'=> $order_id])->with([
+                'error' => 'Order status update unsuccessful',
+            ]);
+        }
     }
 
-    public function delete(Request $request)
+    public function view(Request $request)
     {
-        
+        $order_id = $request->order_id;
+
+        $order = Order::where([['id',$order_id]])->first();
+
+        $order_detail = OrderDetail::where([['order_id',$order_id]])->first();
+
+        return view('Order.view', 
+        [
+            'order' => $order,
+            'order_detail' => $order_detail,
+        ]);
     }
 
 }
