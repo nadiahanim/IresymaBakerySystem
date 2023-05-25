@@ -239,6 +239,15 @@
                             </a>
                         </li>
 
+                        @if(isset(Auth::user()->user_type) && Auth::user()->user_type == 2)
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle arrow-none" href="{{ route('order.custIndex') }}" id="topnav-dashboard" role="button">
+                                <i class="bx bx-cake me-2"></i><span key="t-dashboards">My Orders</span>
+                            </a>
+                        </li>
+                        @else
+                        @endif
+
                     @endif
 
                 </ul>

@@ -96,10 +96,11 @@
                     <a href="<?php echo e(route('cake.index')); ?>" class="btn btn-secondary float-end me-2"><?php echo app('translator')->get('button.back'); ?></a>
                 </div>
             </div>
-            <?php else: ?>
+            <?php elseif(isset(Auth::user()->user_type) && Auth::user()->user_type == 2): ?>
             <div class="mb-3 row">
                 <div class="col-sm-12">
                     <a href="<?php echo e(route('order.create', [
+                        'cake_name'=>$cake->name,
                         'default_shape'=>$cake->shape_id,
                         'default_flavour'=>$cake->flavour_id,
                         'default_cream'=>$cake->cream_id,
@@ -107,6 +108,13 @@
                         'default_tier'=>$cake->tier_id,
                         'default_deco'=>$cake->deco_id
                         ])); ?>" class="btn btn-primary float-end">Order Now</a>
+                    <a href="<?php echo e(route('cake.index')); ?>" class="btn btn-secondary float-end me-2"><?php echo app('translator')->get('button.back'); ?></a>
+                </div>
+            </div>
+            <?php else: ?>
+            <div class="mb-3 row">
+                <div class="col-sm-12">
+                    <a href="<?php echo e(route('login')); ?>" class="btn btn-primary float-end">Order Now</a>
                     <a href="<?php echo e(route('cake.index')); ?>" class="btn btn-secondary float-end me-2"><?php echo app('translator')->get('button.back'); ?></a>
                 </div>
             </div>

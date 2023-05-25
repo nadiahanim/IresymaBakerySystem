@@ -85,8 +85,12 @@ Route::patch('/update-recipe', [RecipeController::class, 'update'])->name('recip
 Route::delete('/delete-recipe', [RecipeController::class, 'delete'])->name('recipe.delete');
 
 Route::get('/list-order', [OrderController::class, 'index'])->name('order.index');
+Route::get('/list-order-customer', [OrderController::class, 'custIndex'])->name('order.custIndex');
 Route::get('/new-order', [OrderController::class, 'create'])->name('order.create');
 Route::post('/save-new-order', [OrderController::class, 'save'])->name('order.save');
+Route::get('/edit-order', [OrderController::class, 'edit'])->name('order.edit');
+Route::patch('/update-order', [OrderController::class, 'update'])->name('order.update');
+Route::get('/view-order', [OrderController::class, 'view'])->name('order.view');
 
 //Update User Details
 Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');

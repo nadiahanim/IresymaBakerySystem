@@ -13,4 +13,14 @@ class Order extends Model
 
     protected $table = 'order';
 
+    public function customer()
+    {
+        return $this->belongsTo(User::class, 'cust_id')->where('status_data',1);
+    }
+
+    public function postcode()
+    {
+        return $this->belongsTo(Service::class, 'deli_postcode')->where('status_data',1);
+    }
+
 }
