@@ -13,19 +13,20 @@ use App\Models\OrderDetail;
 use App\Models\Category;
 use App\Models\Service;
 use App\Models\Calendar;
+use App\Models\Review;
 
 class OrderController extends Controller
 {
 
     public function index()
     {
-        $all_orders = Order::where([['status_data',1]])->orderBy('updated_on', 'DESC')->get();
+        $all_orders = Order::where([['status_data',1],['review',0]])->orderBy('updated_on', 'DESC')->get();
 
-        $new_orders = Order::where([['order_status',1], ['status_data',1]])->get();
+        $new_orders = Order::where([['order_status',1],['review',0], ['status_data',1]])->get();
 
-        $in_progress_orders = Order::where([['order_status',2], ['status_data',1]])->get();
+        $in_progress_orders = Order::where([['order_status',2], ['review',0], ['status_data',1]])->get();
 
-        $completed_orders = Order::where([['order_status',3], ['status_data',1]])->get();
+        $completed_orders = Order::where([['order_status',3], ['review',0], ['status_data',1]])->get();
 
         return view('Order.index', 
         [
@@ -153,6 +154,7 @@ class OrderController extends Controller
         $order->total_price     = $total_price;
         $order->deposit_price   = $deposit_price;
         $order->order_status    = 1;
+        $order->review          = 0;
         $order->status_data     = 1;
         $order->ordered_on      = date('Y-m-d H:i:s');
         $order->updated_on      = date('Y-m-d H:i:s');
@@ -234,15 +236,19 @@ class OrderController extends Controller
     public function view(Request $request)
     {
         $order_id = $request->order_id;
+        $user_id = auth()->user()->id;
 
         $order = Order::where([['id',$order_id]])->first();
 
         $order_detail = OrderDetail::where([['order_id',$order_id]])->first();
 
+        $review = Review::where([['cust_id',$user_id], ['order_id',$order_id]])->first();
+
         return view('Order.view', 
         [
             'order' => $order,
             'order_detail' => $order_detail,
+            'review' => $review,
         ]);
     }
 

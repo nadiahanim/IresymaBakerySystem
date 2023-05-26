@@ -107,11 +107,11 @@
 
                                                 <?php elseif($data->order_status == 3): ?>
                                                 <span class="badge rounded-pill badge-soft-success font-size-14"
-                                                    id="task-status">Complete</span>
+                                                    id="task-status">Ready</span>
                                                     
                                                 <?php elseif($data->order_status == 4): ?>
                                                 <span class="badge rounded-pill badge-soft-success font-size-14"
-                                                    id="task-status">Delivered</span>
+                                                    id="task-status">Completed</span>
 
                                                 <?php else: ?>
                                                 <span class="badge rounded-pill badge-soft-danger font-size-14"
@@ -166,7 +166,7 @@
 
                                                         <?php else: ?>
                                                         <span class="badge rounded-pill badge-soft-success font-size-12"
-                                                            id="task-status">Complete</span>
+                                                            id="task-status">Ready</span>
 
                                                         <?php endif; ?>
                                                     </div>
@@ -224,7 +224,7 @@
 
                                                         <?php else: ?>
                                                         <span class="badge rounded-pill badge-soft-success font-size-12"
-                                                            id="task-status">Complete</span>
+                                                            id="task-status">Ready</span>
 
                                                         <?php endif; ?>
                                                     </div>
@@ -282,7 +282,7 @@
 
                                                         <?php else: ?>
                                                         <span class="badge rounded-pill badge-soft-success font-size-12"
-                                                            id="task-status">Complete</span>
+                                                            id="task-status">Ready</span>
 
                                                         <?php endif; ?>
                                                     </div>

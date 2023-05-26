@@ -1,7 +1,7 @@
 
 
 <?php $__env->startSection('title'); ?>
-<?php echo app('translator')->get('View Order'); ?>
+<?php echo app('translator')->get('View Order Review'); ?>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('css'); ?>
@@ -14,7 +14,7 @@
 <?php $__env->startComponent('components.alert'); ?><?php echo $__env->renderComponent(); ?>
 
 <?php $__env->startComponent('components.breadcrumb'); ?>
-<?php $__env->slot('title'); ?> View Order <?php $__env->endSlot(); ?>
+<?php $__env->slot('title'); ?> View Order Review <?php $__env->endSlot(); ?>
 <?php echo $__env->renderComponent(); ?>
 
 <div class="row">
@@ -204,11 +204,7 @@
 
                 <div class="mb-3 row">
                     <div class="col-sm-12">
-                        <?php if($order->order_status == 4 && $order->review == 0): ?>
-                        <a href="<?php echo e(route('review.create', ['order_id'=>$order->id])); ?>" class="btn btn-success float-end me-2">Add A Review</a>
-                        <?php else: ?>
-                        <?php endif; ?>
-                        <a href="<?php echo e(route('order.custIndex')); ?>" class="btn btn-secondary float-end me-2"><?php echo app('translator')->get('button.back'); ?></a>
+                        <a href="<?php echo e(route('review.index')); ?>" class="btn btn-secondary float-end me-2"><?php echo app('translator')->get('button.back'); ?></a>
                     </div>
                 </div>
 
@@ -226,4 +222,4 @@
 
 <script src="<?php echo e(URL::asset('/build/js/pages/rating-init.js')); ?>"></script>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\user\Documents\GitHub\IresymaBakerySystem\resources\views/Order/view.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\user\Documents\GitHub\IresymaBakerySystem\resources\views/Review/view.blade.php ENDPATH**/ ?>

@@ -13,6 +13,7 @@ use App\Http\Controllers\CakeController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,6 +92,11 @@ Route::post('/save-new-order', [OrderController::class, 'save'])->name('order.sa
 Route::get('/edit-order', [OrderController::class, 'edit'])->name('order.edit');
 Route::patch('/update-order', [OrderController::class, 'update'])->name('order.update');
 Route::get('/view-order', [OrderController::class, 'view'])->name('order.view');
+
+Route::get('/list-reviews', [ReviewController::class, 'index'])->name('review.index');
+Route::get('/give-a-review', [ReviewController::class, 'create'])->name('review.create');
+Route::post('/save-a-review', [ReviewController::class, 'save'])->name('review.save');
+Route::get('/view-review', [ReviewController::class, 'view'])->name('review.view');
 
 //Update User Details
 Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');

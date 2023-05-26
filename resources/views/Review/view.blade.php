@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-@lang('View Order')
+@lang('View Order Review')
 @endsection
 
 @section('css')
@@ -14,7 +14,7 @@
 @component('components.alert')@endcomponent
 
 @component('components.breadcrumb')
-@slot('title') View Order @endslot
+@slot('title') View Order Review @endslot
 @endcomponent
 
 <div class="row">
@@ -204,11 +204,7 @@
 
                 <div class="mb-3 row">
                     <div class="col-sm-12">
-                        @if($order->order_status == 4 && $order->review == 0)
-                        <a href="{{ route('review.create', ['order_id'=>$order->id]) }}" class="btn btn-success float-end me-2">Add A Review</a>
-                        @else
-                        @endif
-                        <a href="{{ route('order.custIndex') }}" class="btn btn-secondary float-end me-2">@lang('button.back')</a>
+                        <a href="{{ route('review.index') }}" class="btn btn-secondary float-end me-2">@lang('button.back')</a>
                     </div>
                 </div>
 

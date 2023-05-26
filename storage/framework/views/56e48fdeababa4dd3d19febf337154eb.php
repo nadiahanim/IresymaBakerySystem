@@ -209,6 +209,12 @@
                         </li>
 
                         <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle arrow-none" href="<?php echo e(route('review.index')); ?>" id="topnav-dashboard" role="button">
+                                <i class="bx bx-receipt me-2"></i><span key="t-dashboards">Reviews</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle arrow-none" href="<?php echo e(route('recipe.index')); ?>" id="topnav-dashboard" role="button">
                                 <i class="bx bx-book-bookmark me-2"></i><span key="t-dashboards">My Recipes</span>
                             </a>

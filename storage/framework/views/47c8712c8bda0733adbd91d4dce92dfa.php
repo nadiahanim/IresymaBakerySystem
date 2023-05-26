@@ -130,8 +130,8 @@
                             <option value="">-- Select --</option>
                             <option value="1" <?php echo e((old('order_status', $order->order_status) == 1) ? 'selected' : ''); ?>>New</option>    
                             <option value="2" <?php echo e((old('order_status', $order->order_status) == 2) ? 'selected' : ''); ?>>In Progress</option> 
-                            <option value="3" <?php echo e((old('order_status', $order->order_status) == 3) ? 'selected' : ''); ?>>Complete</option>  
-                            <option value="4" <?php echo e((old('order_status', $order->order_status) == 4) ? 'selected' : ''); ?>>Delivered</option>
+                            <option value="3" <?php echo e((old('order_status', $order->order_status) == 3) ? 'selected' : ''); ?>>Ready</option>  
+                            <option value="4" <?php echo e((old('order_status', $order->order_status) == 4) ? 'selected' : ''); ?>>Completed</option>
                             <option value="5" <?php echo e((old('order_status', $order->order_status) == 5) ? 'selected' : ''); ?>>Cancelled</option>
                         </select>
                         <div id="errorContainer"></div>
