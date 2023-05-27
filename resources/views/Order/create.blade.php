@@ -47,7 +47,7 @@
                                         <div class="col-md-10">
                                                 @foreach($shape as $i => $data)
                                                     <div class="form-check form-radio-info mb-3">
-                                                        <input class="form-check-input" type="radio" name="cake_shape" id="cake_shape" value="{{ $data->id }}" data-price="{{$data->price}}" {{ (($default_shape) == $data->id) ? 'checked' : ''; }}>
+                                                        <input class="form-check-input" type="radio" required name="cake_shape" id="cake_shape" value="{{ $data->id }}" data-price="{{$data->price}}" {{ (($default_shape) == $data->id) ? 'checked' : ''; }}>
                                                         <label class="form-check-label" for="cake_shape">
                                                             {{ $data->name }}
                                                         </label>
@@ -64,7 +64,7 @@
                                         <div class="col-md-10">
                                                 @foreach($flavour as $i => $data)
                                                     <div class="form-check form-radio-primary mb-3">
-                                                        <input class="form-check-input" type="radio" name="cake_flavour" id="cake_flavour" value="{{ $data->id }}" data-price="{{$data->price}}" {{ (($default_flavour) == $data->id) ? 'checked' : ''; }}>
+                                                        <input class="form-check-input" type="radio" required name="cake_flavour" id="cake_flavour" value="{{ $data->id }}" data-price="{{$data->price}}" {{ (($default_flavour) == $data->id) ? 'checked' : ''; }}>
                                                         <label class="form-check-label" for="cake_flavour">
                                                             {{ $data->name }}
                                                         </label>
@@ -84,7 +84,7 @@
                                         <div class="col-md-10">
                                                 @foreach($size as $i => $data)
                                                     <div class="form-check form-radio-primary mb-3">
-                                                        <input class="form-check-input" type="radio" name="cake_size" id="cake_size" value="{{ $data->id }}" data-price="{{$data->price}}" {{ (($default_size) == $data->id) ? 'checked' : ''; }}>
+                                                        <input class="form-check-input" type="radio" required name="cake_size" id="cake_size" value="{{ $data->id }}" data-price="{{$data->price}}" {{ (($default_size) == $data->id) ? 'checked' : ''; }}>
                                                         <label class="form-check-label" for="cake_size">
                                                             {{ $data->name }}
                                                         </label>
@@ -101,7 +101,7 @@
                                         <div class="col-md-10">
                                                 @foreach($cream as $i => $data)
                                                     <div class="form-check form-radio-info mb-3">
-                                                        <input class="form-check-input" type="radio" name="cake_cream" id="cake_cream" value="{{ $data->id }}" data-price="{{$data->price}}" {{ (($default_cream) == $data->id) ? 'checked' : ''; }}>
+                                                        <input class="form-check-input" type="radio" required name="cake_cream" id="cake_cream" value="{{ $data->id }}" data-price="{{$data->price}}" {{ (($default_cream) == $data->id) ? 'checked' : ''; }}>
                                                         <label class="form-check-label" for="cake_cream">
                                                             {{ $data->name }}
                                                         </label>
@@ -121,7 +121,7 @@
                                         <div class="col-md-10">
                                                 @foreach($tier as $i => $data)
                                                     <div class="form-check form-radio-info mb-3">
-                                                        <input class="form-check-input" type="radio" name="cake_tier" id="cake_tier" value="{{ $data->id }}" data-price="{{$data->price}}" {{ (($default_tier) == $data->id) ? 'checked' : ''; }}>
+                                                        <input class="form-check-input" type="radio" required name="cake_tier" id="cake_tier" value="{{ $data->id }}" data-price="{{$data->price}}" {{ (($default_tier) == $data->id) ? 'checked' : ''; }}>
                                                         <label class="form-check-label" for="cake_tier">
                                                             {{ $data->name }}
                                                         </label>
@@ -147,7 +147,7 @@
                                         <div class="col-md-10">
                                                 @foreach($deco as $i => $data)
                                                     <div class="form-check form-radio-info mb-3">
-                                                        <input class="form-check-input" type="radio" name="cake_deco" id="cake_deco" value="{{ $data->id }}" data-price="{{$data->price}}" {{ (($default_deco) == $data->id) ? 'checked' : ''; }}>
+                                                        <input class="form-check-input" type="radio" required name="cake_deco" id="cake_deco" value="{{ $data->id }}" data-price="{{$data->price}}" {{ (($default_deco) == $data->id) ? 'checked' : ''; }}>
                                                         <label class="form-check-label" for="cake_deco">
                                                             {{ $data->name }}
                                                         </label>
@@ -162,7 +162,13 @@
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <label for="basicpill-vatno-input">Sample Design</label>
-                                        <input type="file" class="form-control" id="sample_image" name="sample_image">
+                                        <input type="file" class="form-control" id="sample_image" name="sample_image"
+                                        required
+                                        data-parsley-filemaxmegabytes="2"
+                                        data-parsley-fileextension='png|jpeg|jpg' data-parsley-fileextension-message="* {{  Config::get('validationMessage.product.product_img.required') }}"
+                                        data-parsley-filemaxmegabytes-message="* {{  Config::get('validationMessage.product.product_img.filemaxmegabytes') }}" 
+                                        data-parsley-trigger="change" data-parsley-filemimetypes="image/jpeg, image/jpg, image/png" 
+                                        data-parsley-filemimetypes-message="* {{  Config::get('validationMessage.product.product_img.filemimetypes') }}">
                                     </div>
                                 </div>
                             </div>
@@ -171,13 +177,15 @@
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <label for="order_message">Special Message</label>
-                                        <input type="text" class="form-control" id="special_message" name="special_message">
+                                        <input type="text" class="form-control" id="special_message" name="special_message"
+                                        required data-parsley-required-message="* {{  Config::get('validationMessage.order.special_message.required') }}" data-parsley-trigger="keyup">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <label for="note">Important Note</label>
-                                        <input type="text" class="form-control" id="note" name="note" value="Ref: {{$cake_name}}">
+                                        <input type="text" class="form-control" id="note" name="note" value="Ref: {{$cake_name}}"
+                                        required data-parsley-required-message="* {{  Config::get('validationMessage.order.note.required') }}" data-parsley-trigger="keyup">
                                     </div>
                                 </div>
                             </div>
@@ -211,7 +219,7 @@
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label for="deli_time">Delivery Time</label>
-                                            <input type="time" class="form-control" id="deli_time" name="deli_time">
+                                            <input type="time" class="form-control" id="deli_time" name="deli_time" required>
                                         </div>
                                     </div>
                                 </div>
@@ -220,7 +228,7 @@
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label for="deli_address1">Address 1</label>
-                                            <input type="text" class="form-control" id="deli_address1" name="deli_address1">
+                                            <input type="text" class="form-control" id="deli_address1" name="deli_address1" required>
                                         </div>
                                     </div>
 
@@ -245,7 +253,7 @@
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                         <label for="deli_address2">Address 2</label>
-                                            <input type="text" class="form-control" id="deli_address2" name="deli_address2">
+                                            <input type="text" class="form-control" id="deli_address2" name="deli_address2" required>
                                         </div>
                                     </div>
 
