@@ -48,7 +48,7 @@
                                         <div class="col-md-10">
                                                 <?php $__currentLoopData = $shape; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <div class="form-check form-radio-info mb-3">
-                                                        <input class="form-check-input" type="radio" name="cake_shape" id="cake_shape" value="<?php echo e($data->id); ?>" data-price="<?php echo e($data->price); ?>" <?php echo e((($default_shape) == $data->id) ? 'checked' : ''); ?>>
+                                                        <input class="form-check-input" type="radio" required name="cake_shape" id="cake_shape" value="<?php echo e($data->id); ?>" data-price="<?php echo e($data->price); ?>" <?php echo e((($default_shape) == $data->id) ? 'checked' : ''); ?>>
                                                         <label class="form-check-label" for="cake_shape">
                                                             <?php echo e($data->name); ?>
 
@@ -66,7 +66,7 @@
                                         <div class="col-md-10">
                                                 <?php $__currentLoopData = $flavour; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <div class="form-check form-radio-primary mb-3">
-                                                        <input class="form-check-input" type="radio" name="cake_flavour" id="cake_flavour" value="<?php echo e($data->id); ?>" data-price="<?php echo e($data->price); ?>" <?php echo e((($default_flavour) == $data->id) ? 'checked' : ''); ?>>
+                                                        <input class="form-check-input" type="radio" required name="cake_flavour" id="cake_flavour" value="<?php echo e($data->id); ?>" data-price="<?php echo e($data->price); ?>" <?php echo e((($default_flavour) == $data->id) ? 'checked' : ''); ?>>
                                                         <label class="form-check-label" for="cake_flavour">
                                                             <?php echo e($data->name); ?>
 
@@ -87,7 +87,7 @@
                                         <div class="col-md-10">
                                                 <?php $__currentLoopData = $size; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <div class="form-check form-radio-primary mb-3">
-                                                        <input class="form-check-input" type="radio" name="cake_size" id="cake_size" value="<?php echo e($data->id); ?>" data-price="<?php echo e($data->price); ?>" <?php echo e((($default_size) == $data->id) ? 'checked' : ''); ?>>
+                                                        <input class="form-check-input" type="radio" required name="cake_size" id="cake_size" value="<?php echo e($data->id); ?>" data-price="<?php echo e($data->price); ?>" <?php echo e((($default_size) == $data->id) ? 'checked' : ''); ?>>
                                                         <label class="form-check-label" for="cake_size">
                                                             <?php echo e($data->name); ?>
 
@@ -105,7 +105,7 @@
                                         <div class="col-md-10">
                                                 <?php $__currentLoopData = $cream; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <div class="form-check form-radio-info mb-3">
-                                                        <input class="form-check-input" type="radio" name="cake_cream" id="cake_cream" value="<?php echo e($data->id); ?>" data-price="<?php echo e($data->price); ?>" <?php echo e((($default_cream) == $data->id) ? 'checked' : ''); ?>>
+                                                        <input class="form-check-input" type="radio" required name="cake_cream" id="cake_cream" value="<?php echo e($data->id); ?>" data-price="<?php echo e($data->price); ?>" <?php echo e((($default_cream) == $data->id) ? 'checked' : ''); ?>>
                                                         <label class="form-check-label" for="cake_cream">
                                                             <?php echo e($data->name); ?>
 
@@ -126,7 +126,7 @@
                                         <div class="col-md-10">
                                                 <?php $__currentLoopData = $tier; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <div class="form-check form-radio-info mb-3">
-                                                        <input class="form-check-input" type="radio" name="cake_tier" id="cake_tier" value="<?php echo e($data->id); ?>" data-price="<?php echo e($data->price); ?>" <?php echo e((($default_tier) == $data->id) ? 'checked' : ''); ?>>
+                                                        <input class="form-check-input" type="radio" required name="cake_tier" id="cake_tier" value="<?php echo e($data->id); ?>" data-price="<?php echo e($data->price); ?>" <?php echo e((($default_tier) == $data->id) ? 'checked' : ''); ?>>
                                                         <label class="form-check-label" for="cake_tier">
                                                             <?php echo e($data->name); ?>
 
@@ -153,7 +153,7 @@
                                         <div class="col-md-10">
                                                 <?php $__currentLoopData = $deco; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <div class="form-check form-radio-info mb-3">
-                                                        <input class="form-check-input" type="radio" name="cake_deco" id="cake_deco" value="<?php echo e($data->id); ?>" data-price="<?php echo e($data->price); ?>" <?php echo e((($default_deco) == $data->id) ? 'checked' : ''); ?>>
+                                                        <input class="form-check-input" type="radio" required name="cake_deco" id="cake_deco" value="<?php echo e($data->id); ?>" data-price="<?php echo e($data->price); ?>" <?php echo e((($default_deco) == $data->id) ? 'checked' : ''); ?>>
                                                         <label class="form-check-label" for="cake_deco">
                                                             <?php echo e($data->name); ?>
 
@@ -169,7 +169,13 @@
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <label for="basicpill-vatno-input">Sample Design</label>
-                                        <input type="file" class="form-control" id="sample_image" name="sample_image">
+                                        <input type="file" class="form-control" id="sample_image" name="sample_image"
+                                        required
+                                        data-parsley-filemaxmegabytes="2"
+                                        data-parsley-fileextension='png|jpeg|jpg' data-parsley-fileextension-message="* <?php echo e(Config::get('validationMessage.product.product_img.required')); ?>"
+                                        data-parsley-filemaxmegabytes-message="* <?php echo e(Config::get('validationMessage.product.product_img.filemaxmegabytes')); ?>" 
+                                        data-parsley-trigger="change" data-parsley-filemimetypes="image/jpeg, image/jpg, image/png" 
+                                        data-parsley-filemimetypes-message="* <?php echo e(Config::get('validationMessage.product.product_img.filemimetypes')); ?>">
                                     </div>
                                 </div>
                             </div>
@@ -178,13 +184,15 @@
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <label for="order_message">Special Message</label>
-                                        <input type="text" class="form-control" id="special_message" name="special_message">
+                                        <input type="text" class="form-control" id="special_message" name="special_message"
+                                        required data-parsley-required-message="* <?php echo e(Config::get('validationMessage.order.special_message.required')); ?>" data-parsley-trigger="keyup">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <label for="note">Important Note</label>
-                                        <input type="text" class="form-control" id="note" name="note" value="Ref: <?php echo e($cake_name); ?>">
+                                        <input type="text" class="form-control" id="note" name="note" value="Ref: <?php echo e($cake_name); ?>"
+                                        required data-parsley-required-message="* <?php echo e(Config::get('validationMessage.order.note.required')); ?>" data-parsley-trigger="keyup">
                                     </div>
                                 </div>
                             </div>
@@ -218,7 +226,7 @@
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label for="deli_time">Delivery Time</label>
-                                            <input type="time" class="form-control" id="deli_time" name="deli_time">
+                                            <input type="time" class="form-control" id="deli_time" name="deli_time" required>
                                         </div>
                                     </div>
                                 </div>
@@ -227,7 +235,7 @@
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label for="deli_address1">Address 1</label>
-                                            <input type="text" class="form-control" id="deli_address1" name="deli_address1">
+                                            <input type="text" class="form-control" id="deli_address1" name="deli_address1" required>
                                         </div>
                                     </div>
 
@@ -252,7 +260,7 @@
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                         <label for="deli_address2">Address 2</label>
-                                            <input type="text" class="form-control" id="deli_address2" name="deli_address2">
+                                            <input type="text" class="form-control" id="deli_address2" name="deli_address2" required>
                                         </div>
                                     </div>
 

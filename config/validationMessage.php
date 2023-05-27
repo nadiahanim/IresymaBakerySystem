@@ -174,6 +174,17 @@ return [
     //ORDER
     //--------------------------------------------------------------------------------------
     'order'=>  [
+        'sample_image' => [
+            'required' => 'Please choose an image',
+            'filemaxmegabytes' => 'Maximum size : 2MB',
+            'filemimetypes' => 'Picture format allowed : jpeg | jpg| png'
+        ],
+        'special_message' => [
+            'required' => 'Please Enter Special Message (If none, enter "-")',
+        ], 
+        'note' => [
+            'required' => 'Please Enter Note (If none, enter "-")',
+        ], 
         'status' => [
             'required' => 'Please Select Order Status',
         ],       
