@@ -40,7 +40,7 @@ class ReviewController extends Controller
         // dd($order_id);
         $user_id = auth()->user()->id;
 
-        $order = Order::where([['cust_id',$user_id], ['id',$order_id], ['status_data',1]])->first();
+        $order = Order::where([['payment_status',1],['cust_id',$user_id], ['id',$order_id], ['status_data',1]])->first();
 
         return view('Review.create', 
         [
