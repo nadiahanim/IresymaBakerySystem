@@ -14,6 +14,7 @@ use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\ToyyibPayController;
 
 /*
 |--------------------------------------------------------------------------
@@ -97,6 +98,10 @@ Route::get('/list-reviews', [ReviewController::class, 'index'])->name('review.in
 Route::get('/give-a-review', [ReviewController::class, 'create'])->name('review.create');
 Route::post('/save-a-review', [ReviewController::class, 'save'])->name('review.save');
 Route::get('/view-review', [ReviewController::class, 'view'])->name('review.view');
+
+Route::get('/bill-payment', [ToyyibPayController::class, 'createBill'])->name('checkout.createBill');
+Route::get('/payment-status', [ToyyibPayController::class, 'paymentStatus'])->name('checkout.paymentStatus');
+Route::post('/callback', [ToyyibPayController::class, 'callback'])->name('checkout.callback');
 
 //Update User Details
 Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');

@@ -22,6 +22,8 @@ $(document).ready(function () {
 
     deco_price = $('input[id=cake_deco]:checked').data('price');
 
+    deli_price = $('#deli_postcode').find('option:selected').data('price');
+
     calcEstimatedPrice();
 });
 

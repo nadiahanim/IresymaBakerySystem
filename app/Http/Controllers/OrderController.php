@@ -20,13 +20,13 @@ class OrderController extends Controller
 
     public function index()
     {
-        $all_orders = Order::where([['status_data',1],['review',0]])->orderBy('updated_on', 'DESC')->get();
+        $all_orders = Order::where([['payment_status',1],['status_data',1],['review',0]])->orderBy('updated_on', 'DESC')->get();
 
-        $new_orders = Order::where([['order_status',1],['review',0], ['status_data',1]])->get();
+        $new_orders = Order::where([['payment_status',1],['order_status',1],['review',0], ['status_data',1]])->get();
 
-        $in_progress_orders = Order::where([['order_status',2], ['review',0], ['status_data',1]])->get();
+        $in_progress_orders = Order::where([['payment_status',1],['order_status',2], ['review',0], ['status_data',1]])->get();
 
-        $completed_orders = Order::where([['order_status',3], ['review',0], ['status_data',1]])->get();
+        $completed_orders = Order::where([['payment_status',1],['order_status',3], ['review',0], ['status_data',1]])->get();
 
         return view('Order.index', 
         [
@@ -41,15 +41,15 @@ class OrderController extends Controller
     {
         $user_id = auth()->user()->id;
 
-        $new_orders = Order::where([['cust_id',$user_id], ['order_status',1], ['status_data',1]])->get();
+        $new_orders = Order::where([['payment_status',1],['cust_id',$user_id], ['order_status',1], ['status_data',1]])->get();
 
-        $in_progress_orders = Order::where([['cust_id',$user_id], ['order_status',2], ['status_data',1]])->get();
+        $in_progress_orders = Order::where([['payment_status',1],['cust_id',$user_id], ['order_status',2], ['status_data',1]])->get();
 
-        $ready_orders = Order::where([['cust_id',$user_id], ['order_status',3], ['status_data',1]])->get();
+        $ready_orders = Order::where([['payment_status',1],['cust_id',$user_id], ['order_status',3], ['status_data',1]])->get();
 
-        $completed_orders = Order::where([['cust_id',$user_id], ['order_status',4], ['status_data',1]])->get();
+        $completed_orders = Order::where([['payment_status',1],['cust_id',$user_id], ['order_status',4], ['status_data',1]])->get();
 
-        $cancelled_orders = Order::where([['cust_id',$user_id], ['order_status',5], ['status_data',1]])->get();
+        $cancelled_orders = Order::where([['payment_status',1],['cust_id',$user_id], ['order_status',5], ['status_data',1]])->get();
 
         return view('Order.custIndex', 
         [
@@ -130,6 +130,7 @@ class OrderController extends Controller
         $sample_image       = $request->file('sample_image')->getClientOriginalName();
         $path               = $request->file('sample_image')->storeAs('images/OrderSampleImage', $sample_image, 'public');
         $special_message    = $request->special_message;
+        $note               = $request->note;
 
         $deli_date      = $request->deli_date;
         $delivery_date = \Carbon\Carbon::createFromFormat('m/d/Y', $deli_date);
@@ -153,6 +154,8 @@ class OrderController extends Controller
         $order->deli_postcode   = $deli_postcode;
         $order->total_price     = $total_price;
         $order->deposit_price   = $deposit_price;
+        $order->payment_status  = 0;
+        $order->bill_code       = '';
         $order->order_status    = 1;
         $order->review          = 0;
         $order->status_data     = 1;
@@ -173,20 +176,22 @@ class OrderController extends Controller
         $order_detail->sample_image_name    = $sample_image;
         $order_detail->sample_image_path    = $path;
         $order_detail->special_message      = $special_message;
-        $order_detail->status_data          = 1;
+        $order_detail->note                 = $note;
 
         $saved2 = $order_detail->save();
 
         if($saved1 && $saved2)
         {
-            return redirect()->route('cake.index')->with([
-                'success' => 'New order successfully added!',
+            return redirect()->route('checkout.createBill', [
+                'user_id'=>auth()->user()->id,
+                'order_id'=>$order->id, 
+                'deposit_price'=>$deposit_price,
             ]);
         }
         else 
         {
             return redirect()->route('cake.create')->with([
-                'error' => 'New order addition unsuccessful',
+                'error' => 'Sorry :( Your order cannot be submitted',
             ]);
         }
 
