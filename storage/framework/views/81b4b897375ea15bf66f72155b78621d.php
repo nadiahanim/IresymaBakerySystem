@@ -76,31 +76,59 @@
                     <table width="60%">
                         <tr>
                             <td width="5%"><?php echo e($operating_hour[0]->day); ?></td>
+                            <?php if($operating_hour[0]->open_close == 1): ?>
                             <td width="10%"><?php echo e(date('h:i a', strtotime($operating_hour[0]->start_hour))); ?> - <?php echo e(date('h:i a', strtotime($operating_hour[0]->end_hour))); ?></td>
+                            <?php else: ?>
+                            <td width="10%">Closed</td>
+                            <?php endif; ?>
                         </tr>
                         <tr>
                             <td width="5%"><?php echo e($operating_hour[1]->day); ?></td>
+                            <?php if($operating_hour[1]->open_close == 1): ?>
                             <td width="10%"><?php echo e(date('h:i a', strtotime($operating_hour[1]->start_hour))); ?> - <?php echo e(date('h:i a', strtotime($operating_hour[1]->end_hour))); ?></td>
+                            <?php else: ?>
+                            <td width="10%">Closed</td>
+                            <?php endif; ?>
                         </tr>
                         <tr>
                             <td width="5%"><?php echo e($operating_hour[2]->day); ?></td>
+                            <?php if($operating_hour[2]->open_close == 1): ?>
                             <td width="10%"><?php echo e(date('h:i a', strtotime($operating_hour[2]->start_hour))); ?> - <?php echo e(date('h:i a', strtotime($operating_hour[2]->end_hour))); ?></td>
+                            <?php else: ?>
+                            <td width="10%">Closed</td>
+                            <?php endif; ?>
                         </tr>
                         <tr>
                             <td width="5%"><?php echo e($operating_hour[3]->day); ?></td>
+                            <?php if($operating_hour[3]->open_close == 1): ?>
                             <td width="10%"><?php echo e(date('h:i a', strtotime($operating_hour[3]->start_hour))); ?> - <?php echo e(date('h:i a', strtotime($operating_hour[3]->end_hour))); ?></td>
+                            <?php else: ?>
+                            <td width="10%">Closed</td>
+                            <?php endif; ?>
                         </tr>
                         <tr>
                             <td width="5%"><?php echo e($operating_hour[4]->day); ?></td>
+                            <?php if($operating_hour[4]->open_close == 1): ?>
                             <td width="10%"><?php echo e(date('h:i a', strtotime($operating_hour[4]->start_hour))); ?> - <?php echo e(date('h:i a', strtotime($operating_hour[4]->end_hour))); ?></td>
+                            <?php else: ?>
+                            <td width="10%">Closed</td>
+                            <?php endif; ?>
                         </tr>
                         <tr>
                             <td width="5%"><?php echo e($operating_hour[5]->day); ?></td>
+                            <?php if($operating_hour[5]->open_close == 1): ?>
                             <td width="10%"><?php echo e(date('h:i a', strtotime($operating_hour[5]->start_hour))); ?> - <?php echo e(date('h:i a', strtotime($operating_hour[5]->end_hour))); ?></td>
+                            <?php else: ?>
+                            <td width="10%">Closed</td>
+                            <?php endif; ?>
                         </tr>
                         <tr>
                             <td width="5%"><?php echo e($operating_hour[6]->day); ?></td>
+                            <?php if($operating_hour[6]->open_close == 1): ?>
                             <td width="10%"><?php echo e(date('h:i a', strtotime($operating_hour[6]->start_hour))); ?> - <?php echo e(date('h:i a', strtotime($operating_hour[6]->end_hour))); ?></td>
+                            <?php else: ?>
+                            <td width="10%">Closed</td>
+                            <?php endif; ?>
                         </tr>
                     </table>
                 </div>

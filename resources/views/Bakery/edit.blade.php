@@ -65,7 +65,7 @@
                     <label for="description" class="col-md-2 col-form-label control-label">Operation Type</label>
                     <div class="col-md-10">                   
                         <div class="square-switch">
-                            <input type="checkbox" id="square-switch1" switch="info" name="operation_type" checked />
+                            <input type="checkbox" id="square-switch1" switch="info" name="operation_type" {{ ($bakery_data->operation_type == 1) ? 'checked' : ''; }}/>
                             <label for="square-switch1" data-on-label="Auto" data-off-label="Manual" style="width:75px;"></label>
                         </div>
                     </div>
@@ -85,6 +85,11 @@
                                         </th>
                                         <th class="text-center" width="25%">
                                             <div class="form-group">
+                                                <label class="col-form-label control-label">Open/Closed</label>
+                                            </div>
+                                        </th>
+                                        <th class="text-center" width="25%">
+                                            <div class="form-group">
                                                 <label class="col-form-label control-label">Start Hour</label>
                                             </div>
                                         </th>
@@ -98,6 +103,10 @@
                                 <tbody class="field_wrapper">
                                     <tr> <!-- monday -->>
                                         <td class="text-center">{{ $operating_hour[0]->day }}</td> 
+                                        <td class="text-center">
+                                            <input type="checkbox" id="switch4_monday" switch="success" name="open_monday" {{ ($operating_hour[0]->open_close == 1) ? 'checked' : ''; }}/>
+                                            <label for="switch4_monday" data-on-label="Open" data-off-label="Closed" style="width:75px;"></label>
+                                        </td>
                                         <td>
                                             <input type="time" class="form-control" name="start_monday" id ="start_monday" value="{{ $operating_hour[0]->start_hour }}">
                                         </td> 
@@ -107,6 +116,10 @@
                                     </tr>
                                     <tr> <!-- tuesday -->
                                         <td class="text-center">{{ $operating_hour[1]->day }}</td> 
+                                        <td class="text-center">
+                                            <input type="checkbox" id="switch4_tuesday" switch="success" name="open_tuesday" {{ ($operating_hour[1]->open_close == 1) ? 'checked' : ''; }}/>
+                                            <label for="switch4_tuesday" data-on-label="Open" data-off-label="Closed" style="width:75px;"></label>
+                                        </td>
                                         <td>
                                             <input type="time" class="form-control" name="start_tuesday" id ="start_tuesday" value="{{ $operating_hour[1]->start_hour }}">
                                         </td> 
@@ -116,6 +129,10 @@
                                     </tr>
                                     <tr> <!-- wednesday -->
                                         <td class="text-center">{{ $operating_hour[2]->day }}</td> 
+                                        <td class="text-center">
+                                            <input type="checkbox" id="switch4_wednesday" switch="success" name="open_wednesday" {{ ($operating_hour[2]->open_close == 1) ? 'checked' : ''; }}/>
+                                            <label for="switch4_wednesday" data-on-label="Open" data-off-label="Closed" style="width:75px;"></label>
+                                        </td>
                                         <td>
                                             <input type="time" class="form-control" name="start_wednesday" id ="start_wednesday" value="{{ $operating_hour[2]->start_hour }}">
                                         </td> 
@@ -125,6 +142,10 @@
                                     </tr>
                                     <tr> <!-- thursday -->
                                         <td class="text-center">{{ $operating_hour[3]->day }}</td> 
+                                        <td class="text-center">
+                                            <input type="checkbox" id="switch4_thursday" switch="success" name="open_thursday" {{ ($operating_hour[3]->open_close == 1) ? 'checked' : ''; }}/>
+                                            <label for="switch4_thursday" data-on-label="Open" data-off-label="Closed" style="width:75px;"></label>
+                                        </td>
                                         <td>
                                             <input type="time" class="form-control" name="start_thursday" id ="start_thursday" value="{{ $operating_hour[3]->start_hour }}">
                                         </td> 
@@ -134,6 +155,10 @@
                                     </tr>
                                     <tr> <!-- friday -->
                                         <td class="text-center">{{ $operating_hour[4]->day }}</td> 
+                                        <td class="text-center">
+                                            <input type="checkbox" id="switch4_friday" switch="success" name="open_friday" {{ ($operating_hour[4]->open_close == 1) ? 'checked' : ''; }}/>
+                                            <label for="switch4_friday" data-on-label="Open" data-off-label="Closed" style="width:75px;"></label>
+                                        </td>
                                         <td>
                                             <input type="time" class="form-control" name="start_friday" id ="start_friday" value="{{ $operating_hour[4]->start_hour }}">
                                         </td> 
@@ -143,6 +168,10 @@
                                     </tr>
                                     <tr> <!-- saturday -->
                                         <td class="text-center">{{ $operating_hour[5]->day }}</td> 
+                                        <td class="text-center">
+                                            <input type="checkbox" id="switch4_saturday" switch="success" name="open_saturday" {{ ($operating_hour[5]->open_close == 1) ? 'checked' : ''; }}/>
+                                            <label for="switch4_saturday" data-on-label="Open" data-off-label="Closed" style="width:75px;"></label>
+                                        </td>
                                         <td>
                                             <input type="time" class="form-control" name="start_saturday" id ="start_saturday" value="{{ $operating_hour[5]->start_hour }}">
                                         </td> 
@@ -152,6 +181,10 @@
                                     </tr>
                                     <tr> <!-- sunday -->
                                         <td class="text-center">{{ $operating_hour[6]->day }}</td> 
+                                        <td class="text-center">
+                                            <input type="checkbox" id="switch4_sunday" switch="success" name="open_sunday" {{ ($operating_hour[6]->open_close == 1) ? 'checked' : ''; }}/>
+                                            <label for="switch4_sunday" data-on-label="Open" data-off-label="Closed" style="width:75px;"></label>
+                                        </td>
                                         <td>
                                             <input type="time" class="form-control" name="start_sunday" id ="start_sunday" value="{{ $operating_hour[6]->start_hour }}">
                                         </td> 

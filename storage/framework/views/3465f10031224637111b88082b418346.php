@@ -138,7 +138,7 @@
                         <div class="col-lg-4">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title mb-4">Upcoming</h4>
+                                    <h4 class="card-title mb-4">New</h4>
                                     <div id="task-1">
                                         <div id="upcoming-task" class="pb-1 task-list">
                                         <?php $__currentLoopData = $new_orders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -254,7 +254,7 @@
                         <div class="col-lg-4">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title mb-4">Completed</h4>
+                                    <h4 class="card-title mb-4">Ready</h4>
                                     <div id="task-3">
                                         <div id="complete-task" class="pb-1 task-list">
                                         <?php $__currentLoopData = $completed_orders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

@@ -305,7 +305,9 @@
         transitionEffect: "slide"
         });
 
-        var today = new Date();
+        var start = new Date();
+        start.setDate(start.getDate() + 3); // the minimum delivery date is in 3 days
+
         var disableddates = $("#dates").data("disablethese");
 
             mobiscroll.setOptions({
@@ -322,7 +324,7 @@
                 '<div mbsc-calendar-nav class="custom-nav" style="width:90%; text-align: center;"></div>' +
                 '<div mbsc-calendar-next class="custom-next"></div>';
             },
-            min: today, 
+            min: start, 
             invalid: disableddates,
             headerText: 'You selected {value}'
         });

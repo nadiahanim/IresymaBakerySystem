@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Support\Facades\DB;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Category;
@@ -96,6 +96,23 @@ class OrderController extends Controller
             $disabled_dates[$i] = $data->disable_date;
         }
 
+        $orders = DB::table('order')
+                    ->select('deli_date', DB::raw('COUNT(*) as total_order'))
+                    ->where([['payment_status',1], ['status_data',1]])
+                    ->groupBy('deli_date')
+                    ->get();
+
+        foreach($orders as $i => $data)
+        {
+            if($data->total_order == 3)
+            {
+                $disabled_dates[] = $data->deli_date;
+            }
+            else
+            {
+
+            }
+        }
 
         return view('Order.create', 
         [

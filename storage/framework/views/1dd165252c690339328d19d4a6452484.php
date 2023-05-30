@@ -54,6 +54,7 @@
                 </div>
             </div>
 
+            <?php if($bakery_data->operation_type == 1): ?>
             <div class="row mb-2" id="auto_operation">
                 <label for="description" class="col-md-2 col-form-label control-label">Operating Hours</label>
                 <div class="col-md-10">
@@ -64,6 +65,11 @@
                                     <th class="text-center" width="15%">
                                         <div class="form-group">
                                             <label class="col-form-label control-label">Day</label>
+                                        </div>
+                                    </th>
+                                    <th class="text-center" width="25%">
+                                        <div class="form-group">
+                                            <label class="col-form-label control-label">Open/Closed</label>
                                         </div>
                                     </th>
                                     <th class="text-center" width="25%">
@@ -81,65 +87,93 @@
                             <tbody class="field_wrapper">
                                 <tr> <!-- monday -->>
                                     <td class="text-center"><?php echo e($operating_hour[0]->day); ?></td> 
+                                    <td class="text-center">
+                                        <input type="checkbox" id="switch4_monday" switch="success" name="open_monday" disabled <?php echo e(($operating_hour[0]->open_close == 1) ? 'checked' : ''); ?>/>
+                                        <label for="switch4_monday" data-on-label="Open" data-off-label="Closed" style="width:75px;"></label>
+                                    </td>
                                     <td>
-                                        <input type="time" class="form-control" name="start_monday" id ="start_monday" value="<?php echo e($operating_hour[0]->start_hour); ?>">
+                                        <input type="time" class="form-control" name="start_monday" id ="start_monday" value="<?php echo e($operating_hour[0]->start_hour); ?>" disabled>
                                     </td> 
                                     <td>
-                                        <input type="time" class="form-control" name="end_monday" id ="end_monday" value="<?php echo e($operating_hour[0]->end_hour); ?>">
+                                        <input type="time" class="form-control" name="end_monday" id ="end_monday" value="<?php echo e($operating_hour[0]->end_hour); ?>" disabled>
                                     </td>                          
                                 </tr>
                                 <tr> <!-- tuesday -->
                                     <td class="text-center"><?php echo e($operating_hour[1]->day); ?></td> 
+                                    <td class="text-center">
+                                        <input type="checkbox" id="switch4_tuesday" switch="success" name="open_tuesday" disabled <?php echo e(($operating_hour[1]->open_close == 1) ? 'checked' : ''); ?>/>
+                                        <label for="switch4_tuesday" data-on-label="Open" data-off-label="Closed" style="width:75px;"></label>
+                                    </td>
                                     <td>
-                                        <input type="time" class="form-control" name="start_tuesday" id ="start_tuesday" value="<?php echo e($operating_hour[1]->start_hour); ?>">
+                                        <input type="time" class="form-control" name="start_tuesday" id ="start_tuesday" value="<?php echo e($operating_hour[1]->start_hour); ?>" disabled>
                                     </td> 
                                     <td>
-                                        <input type="time" class="form-control" name="end_tuesday" id ="end_tuesday" value="<?php echo e($operating_hour[1]->end_hour); ?>">
+                                        <input type="time" class="form-control" name="end_tuesday" id ="end_tuesday" value="<?php echo e($operating_hour[1]->end_hour); ?>" disabled>
                                     </td>                          
                                 </tr>
                                 <tr> <!-- wednesday -->
                                     <td class="text-center"><?php echo e($operating_hour[2]->day); ?></td> 
+                                    <td class="text-center">
+                                        <input type="checkbox" id="switch4_wednesday" switch="success" name="open_wednesday" disabled <?php echo e(($operating_hour[2]->open_close == 1) ? 'checked' : ''); ?>/>
+                                        <label for="switch4_wednesday" data-on-label="Open" data-off-label="Closed" style="width:75px;"></label>
+                                    </td>
                                     <td>
-                                        <input type="time" class="form-control" name="start_wednesday" id ="start_wednesday" value="<?php echo e($operating_hour[2]->start_hour); ?>">
+                                        <input type="time" class="form-control" name="start_wednesday" id ="start_wednesday" value="<?php echo e($operating_hour[2]->start_hour); ?>" disabled>
                                     </td> 
                                     <td>
-                                        <input type="time" class="form-control" name="end_wednesday" id ="end_wednesday" value="<?php echo e($operating_hour[2]->end_hour); ?>">
+                                        <input type="time" class="form-control" name="end_wednesday" id ="end_wednesday" value="<?php echo e($operating_hour[2]->end_hour); ?>" disabled>
                                     </td>                          
                                 </tr>
                                 <tr> <!-- thursday -->
                                     <td class="text-center"><?php echo e($operating_hour[3]->day); ?></td> 
+                                    <td class="text-center">
+                                        <input type="checkbox" id="switch4_thursday" switch="success" name="open_thursday" disabled <?php echo e(($operating_hour[3]->open_close == 1) ? 'checked' : ''); ?>/>
+                                        <label for="switch4_thursday" data-on-label="Open" data-off-label="Closed" style="width:75px;"></label>
+                                    </td>
                                     <td>
-                                        <input type="time" class="form-control" name="start_thursday" id ="start_thursday" value="<?php echo e($operating_hour[3]->start_hour); ?>">
+                                        <input type="time" class="form-control" name="start_thursday" id ="start_thursday" value="<?php echo e($operating_hour[3]->start_hour); ?>" disabled>
                                     </td> 
                                     <td>
-                                        <input type="time" class="form-control" name="end_thursday" id ="end_thursday" value="<?php echo e($operating_hour[3]->end_hour); ?>">
+                                        <input type="time" class="form-control" name="end_thursday" id ="end_thursday" value="<?php echo e($operating_hour[3]->end_hour); ?>" disabled>
                                     </td>                          
                                 </tr>
                                 <tr> <!-- friday -->
                                     <td class="text-center"><?php echo e($operating_hour[4]->day); ?></td> 
+                                    <td class="text-center">
+                                        <input type="checkbox" id="switch4_friday" switch="success" name="open_friday" disabled <?php echo e(($operating_hour[4]->open_close == 1) ? 'checked' : ''); ?>/>
+                                        <label for="switch4_friday" data-on-label="Open" data-off-label="Closed" style="width:75px;"></label>
+                                    </td>
                                     <td>
-                                        <input type="time" class="form-control" name="start_friday" id ="start_friday" value="<?php echo e($operating_hour[4]->start_hour); ?>">
+                                        <input type="time" class="form-control" name="start_friday" id ="start_friday" value="<?php echo e($operating_hour[4]->start_hour); ?>" disabled>
                                     </td> 
                                     <td>
-                                        <input type="time" class="form-control" name="end_friday" id ="end_friday" value="<?php echo e($operating_hour[4]->end_hour); ?>">
+                                        <input type="time" class="form-control" name="end_friday" id ="end_friday" value="<?php echo e($operating_hour[4]->end_hour); ?>" disabled>
                                     </td>                          
                                 </tr>
                                 <tr> <!-- saturday -->
                                     <td class="text-center"><?php echo e($operating_hour[5]->day); ?></td> 
+                                    <td class="text-center">
+                                        <input type="checkbox" id="switch4_saturday" switch="success" name="open_saturday" disabled <?php echo e(($operating_hour[5]->open_close == 1) ? 'checked' : ''); ?>/>
+                                        <label for="switch4_saturday" data-on-label="Open" data-off-label="Closed" style="width:75px;"></label>
+                                    </td>
                                     <td>
-                                        <input type="time" class="form-control" name="start_saturday" id ="start_saturday" value="<?php echo e($operating_hour[5]->start_hour); ?>">
+                                        <input type="time" class="form-control" name="start_saturday" id ="start_saturday" value="<?php echo e($operating_hour[5]->start_hour); ?>" disabled>
                                     </td> 
                                     <td>
-                                        <input type="time" class="form-control" name="end_saturday" id ="end_saturday" value="<?php echo e($operating_hour[5]->end_hour); ?>">
+                                        <input type="time" class="form-control" name="end_saturday" id ="end_saturday" value="<?php echo e($operating_hour[5]->end_hour); ?>" disabled>
                                     </td>                          
                                 </tr>
                                 <tr> <!-- sunday -->
                                     <td class="text-center"><?php echo e($operating_hour[6]->day); ?></td> 
+                                    <td class="text-center">
+                                        <input type="checkbox" id="switch4_sunday" switch="success" name="open_sunday" disabled <?php echo e(($operating_hour[6]->open_close == 1) ? 'checked' : ''); ?>/>
+                                        <label for="switch4_sunday" data-on-label="Open" data-off-label="Closed" style="width:75px;"></label>
+                                    </td>
                                     <td>
-                                        <input type="time" class="form-control" name="start_sunday" id ="start_sunday" value="<?php echo e($operating_hour[6]->start_hour); ?>">
+                                        <input type="time" class="form-control" name="start_sunday" id ="start_sunday" value="<?php echo e($operating_hour[6]->start_hour); ?>" disabled>
                                     </td> 
                                     <td>
-                                        <input type="time" class="form-control" name="end_sunday" id ="end_sunday" value="<?php echo e($operating_hour[6]->end_hour); ?>">
+                                        <input type="time" class="form-control" name="end_sunday" id ="end_sunday" value="<?php echo e($operating_hour[6]->end_hour); ?>" disabled>
                                     </td>                          
                                 </tr>
                             </tbody>
@@ -148,6 +182,8 @@
                 </div>
             </div>
 
+            <?php else: ?>
+
             <div class="row mb-2" id="manual_operation">
                 <label for="description" class="col-md-2 col-form-label control-label">Business Operation</label>
                 <div class="col-md-10">                   
@@ -155,6 +191,10 @@
                     <label for="switch3" data-on-label="Open" data-off-label="Closed" style="width:75px;"></label>
                 </div>
             </div>
+
+            <?php endif; ?>
+
+            
 
             <div class="mb-3 row">
                 <div class="col-sm-11 offset-sm-1">
@@ -179,6 +219,6 @@
 <script src="build/libs/tinymce/tinymce.min.js"></script>
 <!-- init js -->
 <script src="build/js/pages/form-editor.init.js"></script>
-<script src="<?php echo e(URL::asset('/build/js/pages/Bakery/operation.js')); ?>"></script>
+<!-- <script src="<?php echo e(URL::asset('/build/js/pages/Bakery/operation.js')); ?>"></script> -->
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\user\Documents\GitHub\IresymaBakerySystem\resources\views/Bakery/view.blade.php ENDPATH**/ ?>
