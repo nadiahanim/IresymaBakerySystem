@@ -15,6 +15,7 @@ use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ToyyibPayController;
+use App\Http\Controllers\FaqController;
 
 /*
 |--------------------------------------------------------------------------
@@ -102,6 +103,14 @@ Route::get('/view-review', [ReviewController::class, 'view'])->name('review.view
 Route::get('/bill-payment', [ToyyibPayController::class, 'createBill'])->name('checkout.createBill');
 Route::get('/payment-status', [ToyyibPayController::class, 'paymentStatus'])->name('checkout.paymentStatus');
 Route::post('/callback', [ToyyibPayController::class, 'callback'])->name('checkout.callback');
+
+Route::get('/list-faq', [FaqController::class, 'index'])->name('faq.index');
+Route::get('/new-faq', [FaqController::class, 'create'])->name('faq.create');
+Route::post('/save-new-faq', [FaqController::class, 'save'])->name('faq.save');
+Route::get('/edit-faq', [FaqController::class, 'edit'])->name('faq.edit');
+Route::patch('/update-faq', [FaqController::class, 'update'])->name('faq.update');
+Route::delete('/delete-faq', [FaqController::class, 'delete'])->name('faq.delete');
+Route::get('/view-faq', [FaqController::class, 'view'])->name('faq.view');
 
 //Update User Details
 Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');

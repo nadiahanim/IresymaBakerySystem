@@ -1,12 +1,13 @@
 // $(document).ready(function() {
 
-//     $("#msg-password").css("display", "none");
+//     $("#registerButton").attr('disabled', true);
 
 // });
 
 //VALIDATION ONKEYUP - PASSWORD
 $("#msg-password").css("display", "none");
 $("#msg-pengesahan-katalaluan").css("display", "none");
+$("#registerButton").attr('disabled', true);
 
 function validatePassword(inputName, msgName) {
 
@@ -16,7 +17,7 @@ function validatePassword(inputName, msgName) {
     var uppercase = "uppercase";
     var number = "number";
     var symbol = "symbol";
-    var counterValid = 0;
+    var counterValid = -4;
     
     if(input.value != ""){       
         $("#msg-info-katalaluan").css("display", "none");
@@ -115,13 +116,13 @@ function validatePassword(inputName, msgName) {
         counterValid--;
     }
 
-    // if(counterValid>0){
-        
-    //     $("#confirm_password").prop('disabled', false);
-    //     $("#msg-pengesahan-katalaluan").css("display", "block");
-    // }else{  
-    //     $("#confirm_password").prop('disabled', true);
-    //     $("#msg-pengesahan-katalaluan").css("display", "none");
-    // }
+    if(counterValid>0)
+    {
+        $("#registerButton").attr('disabled', false);
+    }
+    else
+    {  
+        $("#registerButton").attr('disabled', true);
+    }
 
 }

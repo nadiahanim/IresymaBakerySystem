@@ -10,12 +10,19 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
+use App\Models\Review;
+
 class RegisterController extends Controller
 {
 
     public function register(){
 
-        return view('auth/register');
+        $five_star = Review::where([['overall_stars',5]])->orderBy('reviewed_on', 'DESC')->get();
+
+        return view('auth/register',
+        [
+            'five_star' => $five_star
+        ]);
 
     }
 

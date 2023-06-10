@@ -199,6 +199,12 @@
                                     <span key="t-horizontal">Pricing</span>                                    
                                 </a>                               
                             </div>
+
+                            <div class="dropdown">
+                                <a class="dropdown-item dropdown-toggle arrow-none" href="<?php echo e(route('faq.index')); ?>" id="topnav-layout-hori" role="button">
+                                    <span key="t-horizontal">FAQ</span>                                    
+                                </a>                               
+                            </div>
                         </div>
                         </li>
 
@@ -210,7 +216,7 @@
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle arrow-none" href="<?php echo e(route('review.index')); ?>" id="topnav-dashboard" role="button">
-                                <i class="bx bx-receipt me-2"></i><span key="t-dashboards">Reviews</span>
+                                <i class="bx bx-star me-2"></i><span key="t-dashboards">Reviews</span>
                             </a>
                         </li>
 
@@ -230,6 +236,12 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle arrow-none" href="<?php echo e(route('bakery.custView')); ?>" id="topnav-dashboard" role="button">
                                 <i class="bx bx-store me-2"></i><span key="t-dashboards">Our Bakery</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle arrow-none" href="<?php echo e(route('faq.view')); ?>" id="topnav-dashboard" role="button">
+                                <i class="bx bx-conversation me-2"></i><span key="t-dashboards">FAQ</span>
                             </a>
                         </li>
 
