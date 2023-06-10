@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Models\User;
+use App\Models\Review;
 
 class LoginController extends Controller
 {
@@ -18,7 +19,12 @@ class LoginController extends Controller
 
     public function login()
     {
-        return view('auth/login');
+        $five_star = Review::where([['overall_stars',5]])->orderBy('reviewed_on', 'DESC')->get();
+
+        return view('auth/login',
+        [
+            'five_star' => $five_star
+        ]);
     }
 
     public function loginCheck(Request $request)
