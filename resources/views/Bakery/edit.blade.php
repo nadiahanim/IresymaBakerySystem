@@ -216,36 +216,6 @@
 
             </form>
 
-            <!-- <h4 class="card-title mb-3">Bakery Images</h4> -->
-            <!-- <form id="upload-image" class="dropzone" action="{{ route('bakery.updateImage') }}" enctype="multipart/form-data">
-            {{ csrf_field() }} 
-            
-                <div class="fallback">
-                    <input name="file" type="file" multiple="multiple">
-                </div>
-
-                <div class="dz-message needsclick" id="image-dropzone">
-                    <div class="mb-3">
-                        <i class="display-4 text-muted bx bxs-cloud-upload"></i>
-                    </div>
-
-                    <h4>Drop files here or click to upload.</h4>
-                </div>
-
-                <div class="mb-3 row">
-                    <div class="col-sm-12">
-                        <button type="submit" class="btn btn-primary float-end">Upload Image</button>
-                    </div>
-                </div>
-
-            </form> -->
-
-            <!-- <div class="mb-3 pt-2 row">
-                <div class="col-sm-12">
-                    <a href="{{ route('bakery.view') }}" class="btn btn-secondary float-end me-2">@lang('button.back')</a>
-                </div>
-            </div> -->
-
         </div>
     </div>
 </div>

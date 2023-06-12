@@ -48,9 +48,7 @@
             <div class="row mb-2">
                 <label for="email" class="col-md-2 col-form-label control-label">Email</label>
                 <div class="col-md-10">
-                    <input name="email" type="email" class="form-control" id="email" value="{{ $user_data->email }}"
-                    data-inputmask="'alias': 'email'" parsley-type="email" data-parsley-type-message="* {{  Config::get('validationMessage.profile.email.email') }}"
-                    required data-parsley-required-message="* {{  Config::get('validationMessage.profile.email.required') }}" data-parsley-trigger="keyup">
+                    <input name="email" type="email" class="form-control" id="email" value="{{ $user_data->email }}" readonly>
                 </div>
             </div>
 

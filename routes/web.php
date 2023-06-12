@@ -48,8 +48,6 @@ Route::get('/view-bakery', [BakeryController::class, 'view'])->name('bakery.view
 Route::get('/view-bakery-info', [BakeryController::class, 'custView'])->name('bakery.custView');
 Route::get('/edit-bakery', [BakeryController::class, 'edit'])->name('bakery.edit');
 Route::patch('/update-bakery', [BakeryController::class, 'update'])->name('bakery.update');
-Route::post('/upload-bakery-image', [BakeryController::class, 'uploadImage'])->name('bakery.uploadImage');
-Route::post('/update-bakery-image', [BakeryController::class, 'updateImage'])->name('bakery.updateImage');
 
 Route::get('/list-product', [ProductController::class, 'index'])->name('product.index');
 Route::get('/new-product', [ProductController::class, 'create'])->name('product.create');
