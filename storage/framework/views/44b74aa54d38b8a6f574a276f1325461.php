@@ -22,8 +22,8 @@
 <?php $__env->startComponent('components.alert'); ?><?php echo $__env->renderComponent(); ?>
 
 <?php $__env->startComponent('components.breadcrumb'); ?>
-<?php $__env->slot('li_1'); ?> Dashboards <?php $__env->endSlot(); ?>
-<?php $__env->slot('title'); ?> Dashboard <?php $__env->endSlot(); ?>
+<?php $__env->slot('li_1'); ?>  <?php $__env->endSlot(); ?>
+<?php $__env->slot('title'); ?>  <?php $__env->endSlot(); ?>
 <?php echo $__env->renderComponent(); ?>
 
 <?php if(isset(Auth::user()->user_type) && Auth::user()->user_type == 1): ?>
@@ -181,6 +181,68 @@
     </div>
 </div>
 <?php else: ?>
+<!-- Customer's Dashboard -->
+<h1 class="display-3 text-primary">Welcome!</h4>
+<h4 class="text-secondary">We are a small local bakery specialized in baked products and customized cakes for birthdays and weddings. To this day, we have managed to complete</h4>
+<div class="row">
+    <div class="col-xl-12">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mini-stats-wid">
+                    <div class="card-body bg-soft bg-info">
+                        <div class="d-flex">
+                            <div class="flex-grow-1">
+                                <p class="text-muted fw-medium">Orders</p>
+                                <h4 class="mb-0"><?php echo e($total_order); ?></h4>
+                            </div>
+
+                            <div class="flex-shrink-0 align-self-center">
+                                <div class="mini-stat-icon avatar-sm rounded-circle bg-info">
+                                    <span class="avatar-title bg-info">
+                                        <i class="bx bx-copy-alt font-size-24"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+    </div>
+</div>
+<!-- end row -->
+
+<h4 class="text-secondary">and we have satisfied our customers and gained a total of</h4>
+<div class="row">
+    <div class="col-xl-12">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mini-stats-wid">
+                    <div class="card-body bg-soft bg-danger">
+                        <div class="d-flex">
+                            <div class="flex-grow-1">
+                                <p class="text-muted fw-medium">5 Star Reviews</p>
+                                <h4 class="mb-0"><?php echo e($five_star->count()); ?></h4>
+                            </div>
+
+                            <div class="flex-shrink-0 align-self-center">
+                                <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                                    <span class="avatar-title rounded-circle bg-danger">
+                                        <i class="bx bx-heart font-size-24"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+    </div>
+</div>
+<!-- end row -->
+
 <?php endif; ?>
 
 
