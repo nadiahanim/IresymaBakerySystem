@@ -18,8 +18,6 @@
 
 @section('content')
 
-@component('components.alert')@endcomponent
-
 @component('components.breadcrumb')
 @slot('title') Pricing @endslot
 @endcomponent
@@ -445,7 +443,7 @@
                                             </th>
                                             <th class="text-center">
                                                 <div class="form-group">
-                                                    <label class="col-form-label control-label">Name</label>
+                                                    <label class="col-form-label control-label">Postcode</label>
                                                 </div>
                                             </th>
                                             <th class="text-center">
@@ -513,4 +511,5 @@
     <script src="{{ URL::asset('build/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}"></script>
     <!-- Datatable init js -->
     <script src="{{ URL::asset('/build/js/pages/datatables.init.js') }}"></script>
+    @component('components.alert')@endcomponent
 @endsection

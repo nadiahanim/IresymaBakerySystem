@@ -38,17 +38,10 @@
                     </div>
                 </div>
 
-                <div class="row mb-2">
-                    <label for="recipe_img" class="col-md-2 col-form-label control-label">Images</label>
-                    <div class="col-md-10">
-                        <input name="recipe_img[]" type="file" class="form-control" id="recipe_img" multiple>
-                    </div>
-                </div>
-
                 <div class="mb-3 row">
                     <div class="col-sm-12">
                         <button type="submit" class="btn btn-primary float-end swal-save"><?php echo app('translator')->get('button.save'); ?></button>
-                        <a href="<?php echo e(route('product.index')); ?>" class="btn btn-secondary float-end me-2"><?php echo app('translator')->get('button.back'); ?></a>
+                        <a href="<?php echo e(route('recipe.index')); ?>" class="btn btn-secondary float-end me-2"><?php echo app('translator')->get('button.back'); ?></a>
                     </div>
                 </div>
 

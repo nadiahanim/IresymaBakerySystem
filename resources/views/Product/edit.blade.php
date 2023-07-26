@@ -12,8 +12,6 @@
 
 @section('content')
 
-@component('components.alert')@endcomponent
-
 @component('components.breadcrumb')
 @slot('title') Edit Product @endslot
 @endcomponent
@@ -155,4 +153,5 @@
 <script src="{{ URL::asset('/build/js/pages/form-advanced.init.js') }}"></script>
 <script src="{{ URL::asset('build/libs/dropzone/min/dropzone.min.js') }}"></script>
 <script src="{{ URL::asset('/build/js/pages/Product/form.js') }}"></script>
+@component('components.alert')@endcomponent
 @endsection

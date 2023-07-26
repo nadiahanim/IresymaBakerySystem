@@ -18,7 +18,7 @@
 
 <?php $__env->startSection('content'); ?>
 
-<?php $__env->startComponent('components.alert'); ?><?php echo $__env->renderComponent(); ?>
+
 
 <?php $__env->startComponent('components.breadcrumb'); ?>
 <?php $__env->slot('title'); ?> My Recipes <?php $__env->endSlot(); ?>
@@ -94,5 +94,8 @@
     <script src="<?php echo e(URL::asset('build/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')); ?>"></script>
     <!-- Datatable init js -->
     <script src="<?php echo e(URL::asset('/build/js/pages/datatables.init.js')); ?>"></script>
+
+    <?php $__env->startComponent('components.alert'); ?><?php echo $__env->renderComponent(); ?>
+    
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\user\Documents\GitHub\IresymaBakerySystem\resources\views/Recipe/index.blade.php ENDPATH**/ ?>

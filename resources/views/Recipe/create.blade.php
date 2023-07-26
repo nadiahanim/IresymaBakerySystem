@@ -10,8 +10,6 @@
 
 @section('content')
 
-@component('components.alert')@endcomponent
-
 @component('components.breadcrumb')
 @slot('title') Add New Recipe @endslot
 @endcomponent
@@ -61,4 +59,5 @@
 <script src="build/libs/tinymce/tinymce.min.js"></script>
 <!-- init js -->
 <script src="build/js/pages/form-editor.init.js"></script>
+@component('components.alert')@endcomponent
 @endsection

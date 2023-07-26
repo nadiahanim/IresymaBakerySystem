@@ -18,8 +18,6 @@
 
 <?php $__env->startSection('content'); ?>
 
-<?php $__env->startComponent('components.alert'); ?><?php echo $__env->renderComponent(); ?>
-
 <?php $__env->startComponent('components.breadcrumb'); ?>
 <?php $__env->slot('title'); ?> Disabled Dates <?php $__env->endSlot(); ?>
 <?php echo $__env->renderComponent(); ?>
@@ -104,5 +102,6 @@
     <script src="<?php echo e(URL::asset('build/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')); ?>"></script>
     <!-- Datatable init js -->
     <script src="<?php echo e(URL::asset('/build/js/pages/datatables.init.js')); ?>"></script>
+    <?php $__env->startComponent('components.alert'); ?><?php echo $__env->renderComponent(); ?>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\user\Documents\GitHub\IresymaBakerySystem\resources\views/Calendar/index.blade.php ENDPATH**/ ?>

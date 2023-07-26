@@ -11,8 +11,6 @@
 
 @section('content')
 
-@component('components.alert')@endcomponent
-
 @component('components.breadcrumb')
 @slot('title') Update Calendar @endslot
 @endcomponent
@@ -77,5 +75,5 @@
     });
 
 </script>
-
+@component('components.alert')@endcomponent
 @endsection

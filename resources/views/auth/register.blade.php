@@ -75,7 +75,6 @@
                                     </div>
 
                                     <div class="mt-4">
-                                        @component('components.alert')@endcomponent
                                         <form id="form" data-parsley-validate class="form-horizontal" method="POST" action="{{ route('registerUser') }}">
                                             @csrf
 
@@ -137,14 +136,7 @@
                                     </div>
                                 </div>
 
-                                <!-- <div class="mt-4 mt-md-5 text-center">
-                                    <p class="mb-0">© <script>
-                                            document.write(new Date().getFullYear())
-                                        </script> Skote. Crafted with <i class="mdi mdi-heart text-danger"></i> by
-                                        Themesbrand</p>
-                                </div> -->
                             </div>
-
 
                         </div>
                     </div>
@@ -163,4 +155,5 @@
     <!-- auth-2-carousel init -->
     <script src="{{ URL::asset('/build/js/pages/auth-2-carousel.init.js') }}"></script>
     <script src="{{ URL::asset('build/js/pages/User/register.js')}}"></script>
+    @component('components.alert')@endcomponent
     @endsection

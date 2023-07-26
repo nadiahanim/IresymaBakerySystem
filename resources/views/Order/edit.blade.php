@@ -10,8 +10,6 @@
 
 @section('content')
 
-@component('components.alert')@endcomponent
-
 @component('components.breadcrumb')
 @slot('title') Update Order @endslot
 @endcomponent
@@ -156,5 +154,5 @@
 @endsection
 
 @section('script')
-
+@component('components.alert')@endcomponent
 @endsection

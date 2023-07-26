@@ -12,8 +12,6 @@
 
 @section('content')
 
-@component('components.alert')@endcomponent
-
 @component('components.breadcrumb')
 @slot('title') Place An Order @endslot
 @endcomponent
@@ -342,4 +340,5 @@
 <!-- jquery step -->
 <script src="{{ URL::asset('build/libs/jquery-steps/build/jquery.steps.min.js') }}"></script>
 <script src="{{ URL::asset('/build/js/pages/Order/orderForm.js') }}"></script>
+@component('components.alert')@endcomponent
 @endsection

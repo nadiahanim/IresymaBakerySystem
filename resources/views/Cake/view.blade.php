@@ -13,8 +13,6 @@
 
 @section('content')
 
-@component('components.alert')@endcomponent
-
 @component('components.breadcrumb')
 @slot('title') Our Best Cake Design @endslot
 @endcomponent
@@ -130,4 +128,5 @@
 <!-- form advanced init -->
 <script src="{{ URL::asset('/build/js/pages/form-advanced.init.js') }}"></script>
 <script src="{{ URL::asset('/build/js/pages/Product/form.js') }}"></script>
+@component('components.alert')@endcomponent
 @endsection
