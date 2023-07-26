@@ -10,8 +10,6 @@
 
 @section('content')
 
-@component('components.alert')@endcomponent
-
 @component('components.breadcrumb')
 @slot('title') Frequently Asked Questions @endslot
 @endcomponent
@@ -64,5 +62,5 @@
 
 @endsection
 @section('script')
-
+@component('components.alert')@endcomponent
 @endsection

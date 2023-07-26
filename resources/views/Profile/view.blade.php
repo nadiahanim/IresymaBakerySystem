@@ -6,8 +6,6 @@
 
 @section('content')
 
-@component('components.alert')@endcomponent
-
 @component('components.breadcrumb')
 @slot('title') Your Profile @endslot
 @endcomponent
@@ -62,4 +60,5 @@
 
 <!-- dashboard init -->
 <script src="{{ URL::asset('build/js/pages/dashboard.init.js') }}"></script>
+@component('components.alert')@endcomponent
 @endsection

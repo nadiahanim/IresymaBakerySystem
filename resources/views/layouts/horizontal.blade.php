@@ -190,7 +190,7 @@
                             <div class="dropdown-menu" aria-labelledby="topnav-settings">
                             <div class="dropdown">
                                 <a class="dropdown-item dropdown-toggle arrow-none" href="{{ route('calendar.index') }}" id="topnav-layout-verti" role="button">
-                                    <span key="t-vertical">Calendar</span>                                    
+                                    <span key="t-vertical">Manage Calendar</span>                                    
                                 </a>                               
                             </div>
 

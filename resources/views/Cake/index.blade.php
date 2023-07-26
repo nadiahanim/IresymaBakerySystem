@@ -6,8 +6,6 @@
 
 @section('content')
 
-@component('components.alert')@endcomponent
-
 @component('components.breadcrumb')
 @slot('title') Our Best Cake Design @endslot
 @endcomponent
@@ -61,5 +59,5 @@
 
 @endsection
 @section('script')
-
+@component('components.alert')@endcomponent
 @endsection

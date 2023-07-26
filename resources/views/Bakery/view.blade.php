@@ -6,8 +6,6 @@
 
 @section('content')
 
-@component('components.alert')@endcomponent
-
 @component('components.breadcrumb')
 @slot('title') My Bakery @endslot
 @endcomponent
@@ -220,4 +218,5 @@
 <!-- init js -->
 <script src="build/js/pages/form-editor.init.js"></script>
 <!-- <script src="{{ URL::asset('/build/js/pages/Bakery/operation.js') }}"></script> -->
+@component('components.alert')@endcomponent
 @endsection

@@ -11,8 +11,6 @@
 
 @section('content')
 
-@component('components.alert')@endcomponent
-
 @component('components.breadcrumb')
 @slot('title') View Order @endslot
 @endcomponent
@@ -225,4 +223,5 @@
 <script src="{{ URL::asset('build/libs/bootstrap-rating/bootstrap-rating.min.js') }}"></script>
 
 <script src="{{ URL::asset('/build/js/pages/rating-init.js') }}"></script>
+@component('components.alert')@endcomponent
 @endsection

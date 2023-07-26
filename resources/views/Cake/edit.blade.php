@@ -10,8 +10,6 @@
 
 @section('content')
 
-@component('components.alert')@endcomponent
-
 @component('components.breadcrumb')
 @slot('title') Edit Cake @endslot
 @endcomponent
@@ -190,4 +188,5 @@
 <!-- form advanced init -->
 <script src="{{ URL::asset('/build/js/pages/form-advanced.init.js') }}"></script>
 <script src="{{ URL::asset('/build/js/pages/Cake/editForm.js') }}"></script>
+@component('components.alert')@endcomponent
 @endsection

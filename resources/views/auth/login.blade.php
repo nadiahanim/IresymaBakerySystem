@@ -75,74 +75,30 @@
                                     </div>
 
                                     <div class="mt-4">
-                                        @component('components.alert')@endcomponent
                                         <form id="form" data-parsley-validate class="form-horizontal" method="POST" action="{{ route('loginCheck') }}">
                                             @csrf
                                             <div class="mb-3">
                                                 <label for="username" class="form-label">Email</label>
                                                 <input name="email" type="email" class="form-control" id="username" placeholder="Email" 
                                                 required data-parsley-required-message="* {{  Config::get('validationMessage.login.email.required') }}" data-parsley-trigger="keyup">
-                                                <!-- @error('email')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror -->
                                             </div>
 
                                             <div class="mb-3">
-                                                <!-- <div class="float-end">
-                                                    @if (Route::has('password.request'))
-                                                    <a href="{{ route('password.request') }}" class="text-muted">Forgot password?</a>
-                                                    @endif
-                                                </div> -->
                                                 <label class="form-label">Password</label>
                                                 <div class="input-group auth-pass-inputgroup @error('password') is-invalid @enderror">
                                                     <input type="password" name="password" class="form-control" id="userpassword" placeholder="Password"
                                                     required data-parsley-required-message="* {{  Config::get('validationMessage.login.password.required') }}" data-parsley-trigger="keyup"
                                                     data-parsley-errors-container="#error">
                                                     <button class="btn btn-light " type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
-                                                    <!-- @error('password')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror -->
                                                 </div>
                                                 <div id="error"></div>
                                             </div>
-
-                                            <!-- <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="remember">
-                                                    Remember me
-                                                </label>
-                                            </div> -->
 
                                             <div class="mt-3 d-grid">
                                                 <button class="btn waves-effect waves-light" type="submit" style="background-color:#F2A0A0; color:white;">Log
                                                     In</button>
                                             </div>
 
-                                            <!-- <div class="mt-4 text-center">
-                                                <h5 class="font-size-14 mb-3">Sign in with</h5>
-
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item">
-                                                        <a href="#" class="social-list-item bg-primary text-white border-primary">
-                                                            <i class="mdi mdi-facebook"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="list-inline-item">
-                                                        <a href="#" class="social-list-item bg-info text-white border-info">
-                                                            <i class="mdi mdi-twitter"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="list-inline-item">
-                                                        <a href="#" class="social-list-item bg-danger text-white border-danger">
-                                                            <i class="mdi mdi-google"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div> -->
                                         </form>
                                         <div class="mt-5 text-center">
                                             <p>Don't have an account ? <a href="{{ route('register') }}" class="fw-medium" style="color:#F2A0A0;"> Signup now </a> </p>
@@ -150,12 +106,6 @@
                                     </div>
                                 </div>
 
-                                <!-- <div class="mt-4 mt-md-5 text-center">
-                                    <p class="mb-0">© <script>
-                                            document.write(new Date().getFullYear())
-                                        </script> Skote. Crafted with <i class="mdi mdi-heart text-danger"></i> by
-                                        Themesbrand</p>
-                                </div> -->
                             </div>
 
 
@@ -175,4 +125,5 @@
     <script src="{{ URL::asset('/build/libs/owl.carousel/owl.carousel.min.js') }}"></script>
     <!-- auth-2-carousel init -->
     <script src="{{ URL::asset('/build/js/pages/auth-2-carousel.init.js') }}"></script>
+    @component('components.alert')@endcomponent
     @endsection

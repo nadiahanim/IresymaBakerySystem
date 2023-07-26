@@ -11,8 +11,6 @@
 
 <?php $__env->startSection('content'); ?>
 
-<?php $__env->startComponent('components.alert'); ?><?php echo $__env->renderComponent(); ?>
-
 <?php $__env->startComponent('components.breadcrumb'); ?>
 <?php $__env->slot('title'); ?> Update Calendar <?php $__env->endSlot(); ?>
 <?php echo $__env->renderComponent(); ?>
@@ -77,6 +75,6 @@
     });
 
 </script>
-
+<?php $__env->startComponent('components.alert'); ?><?php echo $__env->renderComponent(); ?>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\user\Documents\GitHub\IresymaBakerySystem\resources\views/Calendar/edit.blade.php ENDPATH**/ ?>

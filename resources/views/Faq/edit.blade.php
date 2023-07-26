@@ -10,8 +10,6 @@
 
 @section('content')
 
-@component('components.alert')@endcomponent
-
 @component('components.breadcrumb')
 @slot('title') Edit FAQ @endslot
 @endcomponent
@@ -68,4 +66,5 @@
 <script src="{{ URL::asset('build/libs/select2/js/select2.min.js') }}"></script>
 <!-- form advanced init -->
 <script src="{{ URL::asset('/build/js/pages/form-advanced.init.js') }}"></script>
+@component('components.alert')@endcomponent
 @endsection

@@ -7,14 +7,10 @@
 @section('css')
     <!-- Plugins css -->
     <link href="{{ URL::asset('build/libs/dropzone/min/dropzone.min.css') }}" rel="stylesheet" type="text/css" />
-    <!-- <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" /> -->
 
 @endsection
 
 @section('content')
-
-@component('components.alert')@endcomponent
 
 @component('components.breadcrumb')
 @slot('title') My Bakery @endslot
@@ -235,4 +231,5 @@
 <!-- init js -->
 <script src="build/js/pages/form-editor.init.js"></script>
 <script src="{{ URL::asset('/build/js/pages/Bakery/operation.js') }}"></script>
+@component('components.alert')@endcomponent
 @endsection
